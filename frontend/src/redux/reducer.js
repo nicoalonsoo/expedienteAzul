@@ -1,4 +1,4 @@
-import { GET_USERS, GET_COUNTRIES, UPDATE_FILTERED_USERS} from "./actions";
+import { GET_USERS, GET_COUNTRIES, UPDATE_FILTERED_USERS, ORDER} from "./actions";
 
 const initialState = {
   users: [],
@@ -38,8 +38,35 @@ const reducer = (state = initialState, action) => {
     case UPDATE_FILTERED_USERS:
       const usersFiltered = action.payload.rows
       const contados = action.payload.count
-      console.log(contados);
       return { ...state, users: usersFiltered, count: contados };
+      case ORDER:
+        let sortedArray = []
+        let sortOrdered 
+        if(action.payload === "asc" || action.payload === "dsc"){
+          sortOrdered = action.payload === "asc" ? 1 : -1;
+          sortedArray = [...state.users].sort(function(a, b) {
+           if (a.createdAt > b.createdAt) {
+             return sortOrdered;
+           }
+           if (a.createdAt < b.createdAt) {
+             return -sortOrdered;
+           }
+           return 0;
+         }); 
+        }
+        if(action.payload === "ascR" || action.payload === "dscR"){
+          sortOrdered = action.payload === "ascR" ? 1 : -1;
+          sortedArray = [...state.users].sort(function(a, b) {
+           if (a.Rating > b.Rating) {
+             return sortOrdered;
+           }
+           if (a.Rating < b.Rating) {
+             return -sortOrdered;
+           }
+           return 0;
+         }); 
+        }
+        return {...state, users: sortedArray};
       default:
         return{...state};
   }

@@ -5,7 +5,9 @@ import LandingVideo from './views/LandingVideo/LandingVideo';
 import LandingForm from './views/LandingForm/LandingForm';
 import UserTable from './views/UserTable/UserTable'
 import Unsubscribe from './views/Unsubscribe/Unsubscribe'
-axios.defaults.baseURL = 'http://localhost:3001';
+axios.defaults.baseURL = 'expedienteazul-production.up.railway.app';
+// expedienteazul-production.up.railway.app
+// http://localhost:3001
 function App() {
   return (
     <div className="font-roboto App ">

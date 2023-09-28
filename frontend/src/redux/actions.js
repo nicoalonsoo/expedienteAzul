@@ -2,11 +2,12 @@ import axios from "axios";
 export const GET_USERS = "GET_USERS";
 export const GET_COUNTRIES = "GET_COUNTRIES";
 export const UPDATE_FILTERED_USERS = 'UPDATE_FILTERED_USERS';
+export const ORDER = "ORDER";
 
-export const getUsers = (code, page, search) => {
+export const getUsers = (code, order, page, search ) => {
     return async function(dispatch) {
       try {
-        const queryParams = `code=${code}&page=${page}${search ? `&search=${search}` : ''}`;
+        const queryParams = `code=${code}&order=${order}&page=${page}${search ? `&search=${search}` : ''}`;
         const backData = await axios.get(`/users?${queryParams}`);
         const users = backData.data.users;
         dispatch({ type: GET_USERS, payload: users });
@@ -41,3 +42,9 @@ export const getUsers = (code, page, search) => {
       console.error(error);
     }}
   };
+
+  export const orderUsers = (orden) => {
+    return async function(dispatch){
+        dispatch({type: ORDER, payload: orden});
+    }
+};

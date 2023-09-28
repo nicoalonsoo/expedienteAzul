@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getUsers, updateFilteredUsers } from "../../redux/actions";
+import { getUsers, updateFilteredUsers, orderUsers } from "../../redux/actions";
 import ExcelDownloadButton from "../../componentes/ExcellButton/excellButton";
 import Dropdown from "../../componentes/Dropdown/Dropdown";
 import Up from "../../multimedia/up.svg";
+import Down from "../../multimedia/down.svg";
 import axios from "axios";
 const UserTable = () => {
   const users = useSelector((state) => state.users);
@@ -16,6 +17,7 @@ const UserTable = () => {
   const [filter, setFilter] = useState({});
   const [search, setSearch] = useState("");
   const [isSearching, setIsSearching] = useState(false);
+  const [order, setOrder] = useState("asc");
 
   const urlParams = new URLSearchParams(window.location.search);
   const accessCode = urlParams.get("code");
@@ -27,7 +29,7 @@ const UserTable = () => {
         handleFilter(filter);
       } else {
         if (accessCode) {
-          dispatch(getUsers(accessCode, currentPage));
+          dispatch(getUsers(accessCode, order, currentPage));
         }
       }
     }
@@ -89,7 +91,7 @@ const UserTable = () => {
         // Maneja la respuesta de la solicitud, por ejemplo, muestra una notificación de éxito
         alert("Cambios guardados con éxito");
         if (Object.keys(filter).length === 0) {
-          dispatch(getUsers(accessCode, currentPage));
+          dispatch(getUsers(accessCode, order, currentPage));
         } else {
           handleFilter(filter);
         }
@@ -132,13 +134,18 @@ const UserTable = () => {
     e.preventDefault();
     setIsSearching(false);
     setSearch("");
-    dispatch(getUsers(accessCode, 1));
+    dispatch(getUsers(accessCode, order, 1));
   };
 
   const handleSearchEvent = () => {
-    dispatch(getUsers(accessCode, currentPage, search));
+    dispatch(getUsers(accessCode, order, currentPage, search));
     setIsSearching(true);
   };
+
+  const handleOrder = (value) => {
+    setOrder(value)
+    dispatch(getUsers(accessCode, value, currentPage, search));
+  }
 
   return (
     <div className="overflow-x-auto ">
@@ -178,14 +185,14 @@ const UserTable = () => {
                         <path
                           d="M8.11086 15.2217C12.0381 15.2217 15.2217 12.0381 15.2217 8.11086C15.2217 4.18364 12.0381 1 8.11086 1C4.18364 1 1 4.18364 1 8.11086C1 12.0381 4.18364 15.2217 8.11086 15.2217Z"
                           stroke="#455A64"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         />
                         <path
                           d="M16.9993 16.9993L13.1328 13.1328"
                           stroke="#455A64"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         />
                       </svg>
                     </button>
@@ -238,13 +245,23 @@ const UserTable = () => {
                 </th>
                 <th className="px-6 py-3 border-b-2 border-gray-300 text-sm leading-4 text-blue-500 tracking-wider relative">
                   Fecha de Creación
-                  <button><img
+                  {order === "asc" ? <button
+                  onClick={() => handleOrder("desc")}
+                  ><img
+                    src={Down} // Ruta a tu imagen de flecha
+                    alt="arrow up "
+                    className="absolute top-1/2 right-6 transform -translate-y-1/2 text-blue-500"
+                    style={{ width: "16px", height: "16px" }} // Ajusta el tamaño según tus necesidades
+                  />
+                  </button> : <button
+                  onClick={() => handleOrder("asc")}
+                  ><img
                     src={Up} // Ruta a tu imagen de flecha
                     alt="arrow up "
                     className="absolute top-1/2 right-6 transform -translate-y-1/2 text-blue-500"
                     style={{ width: "16px", height: "16px" }} // Ajusta el tamaño según tus necesidades
                   />
-                  </button>
+                  </button>}
                 </th>
                 <th className="px-6 py-3 border-b-2 border-gray-300"></th>
               </tr>
@@ -400,9 +417,9 @@ const UserTable = () => {
                       fill="currentColor"
                     >
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       />
                     </svg>
                   </button>
