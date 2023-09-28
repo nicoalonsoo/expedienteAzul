@@ -1,23 +1,14 @@
-import logo from './logo.svg';
+import axios from "axios";
 import './App.css';
-
+import { Route } from 'react-router-dom';
+import UserTable from './view/UserTable/UserTable'
+axios.defaults.baseURL = 'https://expedienteazul-production.up.railway.app';
+// https://expedienteazul-production.up.railway.app
+// http://localhost:3001
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="font-roboto App ">
+      <Route exact path="/usertable" component={UserTable} />
     </div>
   );
 }
