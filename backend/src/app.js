@@ -16,9 +16,13 @@ server.use(bodyParser.json({ limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
 server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://expedienteazul.vercel.app');
-  // http://localhost:3000
-  // https://expedienteazul.vercel.app
+  const allowedOrigins = [
+    'https://expedienteazul.vercel.app',
+    'http://localhost:3000',
+    'https://expedienteazul-pw32.vercel.app',
+  ];
+  
+  res.header('Access-Control-Allow-Origin', allowedOrigins.join(', '));
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
