@@ -5,8 +5,8 @@ import LandingVideo from './views/LandingVideo/LandingVideo';
 import LandingForm from './views/LandingForm/LandingForm';
 import UserTable from './views/UserTable/UserTable'
 import Unsubscribe from './views/Unsubscribe/Unsubscribe'
-axios.defaults.baseURL = 'expedienteazul-production.up.railway.app';
-// expedienteazul-production.up.railway.app
+axios.defaults.baseURL = 'https://expedienteazul-production.up.railway.app';
+// https://expedienteazul-production.up.railway.app
 // http://localhost:3001
 function App() {
   return (
