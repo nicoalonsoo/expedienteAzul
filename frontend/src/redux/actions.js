@@ -2,7 +2,6 @@ import axios from "axios";
 export const GET_USERS = "GET_USERS";
 export const GET_COUNTRIES = "GET_COUNTRIES";
 export const UPDATE_FILTERED_USERS = 'UPDATE_FILTERED_USERS';
-export const ORDER = "ORDER";
 
 export const getUsers = (code, order, page, search ) => {
     return async function(dispatch) {
@@ -36,15 +35,9 @@ export const getUsers = (code, order, page, search ) => {
         flag: country.flags.svg,
         continent: country.continents[0]
       }));
-      console.log(data);
       dispatch({ type: GET_COUNTRIES, payload: data });
     } catch (error) {
       console.error(error);
     }}
   };
 
-  export const orderUsers = (orden) => {
-    return async function(dispatch){
-        dispatch({type: ORDER, payload: orden});
-    }
-};
