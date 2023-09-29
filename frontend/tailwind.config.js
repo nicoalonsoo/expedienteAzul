@@ -8,6 +8,7 @@ module.exports = withMT({
     extend: {
       fontFamily: {
         'roboto': ['Roboto', 'sans'],
+        'open-sans': ['Open Sans', 'sans'],
       },
       fontSize: {
         '12px': '12px',
@@ -16,6 +17,7 @@ module.exports = withMT({
       },
       lineHeight: {
         '1.25rem': '1.25rem',
+        'custom': '1',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
