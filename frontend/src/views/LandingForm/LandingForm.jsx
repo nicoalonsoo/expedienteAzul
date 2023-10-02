@@ -81,22 +81,21 @@ const LandingForm = () => {
     >
       <Header />
       <div className="text-center py-4 max-w-[1223px] mx-auto">
-        <h3 className="font-open-sans text-sm md:text-lg font-bold text-red-500 mb-2 mt-0 mx-4 md:my-0">
+        <h3 className="font-open-sans text-sm md:text-lg font-bold text-red-500 mb-4 mt-0 mx-4 md:my-0">
           🚨 SOLO PARA PERSONAS QUE SE ESTÁN INICIANDO EN EL TRADING O QUE YA SE
           INICIARON PERO NO TIENEN BUENOS RESULTADOS. 🚨
         </h3>
         <h3 className="text-base md:text-2xl font-semibold mx-6 my-2 md:my-0 md:mx-0">
           Nuevo video de 5 minutos revela...
         </h3>
-        <h1 className="font-open-sans text-4xl md:text-5xl font-extrabold text-gray-800 leading-custom mb-2 mx-4 md:mx-0">
+        <h1 className="font-open-sans text-4xl md:text-5xl font-extrabold text-gray-800 leading-custom mb-4 mx-4 md:mx-0">
           COMO LOGRAR OBTENER UNA RENTABILIDAD DEL{" "}
           <span className="underline">10%</span> AL{" "}
           <span className="underline">30%</span> MENSUAL HACIENDO COPYTRADING
         </h1>
         <h3 className="text-lg md:text-2xl mb-2 mx-6 my-2 md:my-0 md:mx-0">
           Copiando y pegando nuestra estrategia que nos viene generando en
-          promedio un 29% mensual en los últimos dos años. Vas a poder ingresar
-          100% GRATIS cumpliendo dos requisitos.
+          promedio un 29% mensual en los últimos dos años.
         </h3>
         <div className="mx-auto max-w-[700px] p-4 sm:p-4 mb-0 mt-0 sm:mb-2 sm:mt-2">
           <img
@@ -109,7 +108,7 @@ const LandingForm = () => {
           />
         </div>
         <button
-          className="ov-btn-slide-left max-w-[700px] text-white text-2xl py-4 px-6 rounded-lg mb-4 mx-4 my-0 md:my-2"
+          className="ov-btn-slide-left max-w-[700px] text-white text-2xl py-4 px-6 rounded-lg mb-2 mx-4 my-0 md:my-2"
           onClick={() => handleClick(true)}
           style={{ marginBottom: "3rem" }}
         >

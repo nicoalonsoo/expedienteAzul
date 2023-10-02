@@ -5,7 +5,7 @@ import logo from "../../multimedia/log.png";
 import { eventLead } from "../../utils/pixelEvents/PixelEvents";
 import { useHistory } from "react-router-dom";
 import Select from "react-select";
-import './Registro.css'
+import "./Registro.css";
 const Registro = ({ actualizarEstado, countries }) => {
   const history = useHistory();
   const [registro, setRegistro] = useState({
@@ -13,7 +13,7 @@ const Registro = ({ actualizarEstado, countries }) => {
     email: "",
     phone: "",
     countryCode: null,
-    country: '',
+    country: "",
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -98,7 +98,9 @@ const Registro = ({ actualizarEstado, countries }) => {
     actualizarEstado(click);
   };
 
-  const selectedCountry = countries.find((country) => country.code === registro.countryCode);
+  const selectedCountry = countries.find(
+    (country) => country.code === registro.countryCode
+  );
 
   return (
     <div className="max-w-[1100px] flex items-center justify-center">
@@ -120,21 +122,16 @@ const Registro = ({ actualizarEstado, countries }) => {
           className="font-open-sans text-sm md:text-lg font-bold text-red-500 mb-2 mt-0 mx-4 md:my-0 text-left"
           style={{ marginBottom: "1rem" }}
         >
-          *Utilizaremos estos datos para ponernos en contacto y regalarte
-          material de entrenamiento extra en base tus necesidades específicas de
-          trading.
-        </h3>
-        <h3
-          className="font-open-sans text-sm md:text-lg font-bold text-red-500 mb-2 mt-0 mx-4 md:my-0 text-left"
-          style={{ marginBottom: "1rem" }}
-        >
           *SÓLO regístrate si tienes más de $100 dólares para depositar en tu
           cuenta personal de trading y estás dispuesto a crecer.
         </h3>
 
         <form className="max-w-[400px] sm:max-w-[700px] mx-auto">
           <div className="mb-2">
-            <label htmlFor="name" className="block mb-1 sm:mb-2 text-sm text-gray-600">
+            <label
+              htmlFor="name"
+              className="block mb-1 sm:mb-2 text-sm text-gray-600"
+            >
               Ingresá tu Primer Nombre y Apellido
             </label>
             <input
@@ -151,13 +148,16 @@ const Registro = ({ actualizarEstado, countries }) => {
             )}
           </div>
           <div>
-            <label htmlFor="phone" className="block mb-1 sm:mb-2 text-sm text-gray-600">
-            Ingresá tu Numero de telefono
+            <label
+              htmlFor="phone"
+              className="block mb-1 sm:mb-2 text-sm text-gray-600"
+            >
+              Ingresá tu Numero de telefono
             </label>
             <div className="flex max-h-[54px] mb-2">
               <Select
                 options={countries.map((country) => ({
-                  value: [country.code,country.name],
+                  value: [country.code, country.name],
                   label: (
                     <div className="cursor-pointer flex items-center">
                       <img
@@ -171,22 +171,30 @@ const Registro = ({ actualizarEstado, countries }) => {
                     </div>
                   ),
                 }))}
-                placeholder={<span className="sm:text-sm text-13px leading-1.25rem text-gray-600 ">País</span>}
-                value={selectedCountry ? {
-                  value: [registro.countryCode, registro.country],
-                  label: (
-                    <div className="flex items-center cursor-pointer">
-                      <img
-                        src={selectedCountry.flag}
-                        alt={selectedCountry.name}
-                        className="w-6 h-4"
-                      />
-                      <span>
-                        {`${selectedCountry.name} (${registro.countryCode})`}
-                      </span>
-                    </div>
-                  ),
-                } : registro.countryCode}
+                placeholder={
+                  <span className="sm:text-sm text-13px leading-1.25rem text-gray-600 ">
+                    País
+                  </span>
+                }
+                value={
+                  selectedCountry
+                    ? {
+                        value: [registro.countryCode, registro.country],
+                        label: (
+                          <div className="flex items-center cursor-pointer">
+                            <img
+                              src={selectedCountry.flag}
+                              alt={selectedCountry.name}
+                              className="w-6 h-4"
+                            />
+                            <span>
+                              {`${selectedCountry.name} (${registro.countryCode})`}
+                            </span>
+                          </div>
+                        ),
+                      }
+                    : registro.countryCode
+                }
                 onChange={(selectedOption) => {
                   setRegistro({
                     ...registro,
@@ -212,8 +220,11 @@ const Registro = ({ actualizarEstado, countries }) => {
             )}
           </div>
           <div className="mb-4">
-            <label htmlFor="email" className="block mb-1 sm:mb-2 text-sm text-gray-600">
-            Ingresá tu Correo electrónico
+            <label
+              htmlFor="email"
+              className="block mb-1 sm:mb-2 text-sm text-gray-600"
+            >
+              Ingresá tu Correo electrónico
             </label>
             <input
               type="email"
@@ -246,9 +257,17 @@ const Registro = ({ actualizarEstado, countries }) => {
             )}
           </div>
         </form>
+        <h3
+          className="font-open-sans text-sm md:text-lg font-bold text-red-500 mb-2 mt-0 mx-4 md:my-0 text-left"
+          style={{ marginBottom: "1rem" }}
+        >
+          *Utilizaremos estos datos para ponernos en contacto y regalarte
+          material de entrenamiento extra en base tus necesidades específicas de
+          trading.
+        </h3>
         <div className="text-center"></div>
         <p className="text-xs text-gray-600 text-center mt-8">
-          &copy; 2023 Libertex
+          &copy; 2023 Expediente Azul
         </p>
       </div>
     </div>
