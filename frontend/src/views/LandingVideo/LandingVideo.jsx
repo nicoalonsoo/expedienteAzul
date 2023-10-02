@@ -45,6 +45,7 @@ const LandingVideo = () => {
           PASO 2: REGISTRATE EN NUESTRA ACADEMIA
         </h1>
         <div className="border-2 border-red-500 mx-4">
+          <div className="mt-2">
           <h3 className="font-open-sans text-sm md:text-lg font-extrabold text-red-500 mb-4 mx-4 my-4 md:my-0">
             *Si ya tienes cuenta en Libertex puedes registrarte con el mismo
             nombre y número de teléfono pero distinto email.
@@ -60,9 +61,10 @@ const LandingVideo = () => {
             *No somos una empresa multinivel ni un fondo de inversión, somos una
             academia de trading asociada al broker Libertex.
           </h3>
+          </div>
         </div>
         <button
-          className="ov-btn-slide-left max-w-[700px] text-white text-2xl py-4 px-6 rounded-lg mb-4 mx-4 my-4 md:my-0"
+          className="ov-btn-slide-left max-w-[700px] text-white text-2xl py-4 px-6 rounded-lg mb-4 mx-4 my-4 md:my-6"
           onClick={() => handleClick()}
         >
           REGÍSTRATE!
