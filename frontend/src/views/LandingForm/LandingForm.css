@@ -1,10 +1,18 @@
+.appear {
+  opacity: 0;                /* Inicialmente, el elemento es transparente */
+  transform: translateY(20px); /* Desplaza el elemento hacia abajo 20px */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
 /* Estilos para el botón Slide Left */
 .ov-btn-slide-left {
-    background: #3b8fd8;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; 
     color: #ffffff;
+    height: 80px;
     /* border: 2px solid #1b630e; */
     padding: 16px 20px;
-    border-radius: 3px;
+    border-radius: 12px;
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -39,6 +47,7 @@
   }
   @media screen and (max-width: 768px) {
     .ov-btn-slide-left {
+      height: 65px;
         font-size: 18px; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
     }
 }

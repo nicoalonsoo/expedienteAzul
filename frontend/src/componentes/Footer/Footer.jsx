@@ -31,7 +31,7 @@ const Footer = () => {
         </div> */}
 
         {/* Texto de derechos reservados */}
-        <p className="text-sm">&copy; {new Date().getFullYear()} Expediente Azul. Todos los derechos reservados.</p>
+        <p className="text-sm text-gray-600">&copy; {new Date().getFullYear()} Expediente Azul. Todos los derechos reservados.</p>
       </div>
     </footer>
   );

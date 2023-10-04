@@ -9,6 +9,8 @@ module.exports = withMT({
       fontFamily: {
         'roboto': ['Roboto', 'sans'],
         'open-sans': ['Open Sans', 'sans'],
+        'inter': ['Inter', 'sans-serif'],
+        'catamaran': ['Catamaran', 'sans-serif'],
       },
       fontSize: {
         '12px': '12px',
@@ -23,6 +25,9 @@ module.exports = withMT({
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+      colors: {
+        'custom-blue': '#3b8fd8',
       },
     },
   },

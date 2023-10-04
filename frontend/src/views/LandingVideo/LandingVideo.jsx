@@ -3,6 +3,7 @@ import "./LandingVideo.css";
 import DropboxVideo from "../../componentes/Video/Video";
 import Header from "../../componentes/Header/Header";
 import Footer from "../../componentes/Footer/Footer";
+// import fondo from '../../multimedia/fondo.jpg'
 import { useHistory } from "react-router-dom";
 import { eventViewContent } from "../../utils/pixelEvents/PixelEvents";
 const LandingVideo = () => {
@@ -19,10 +20,10 @@ const LandingVideo = () => {
   return (
     <div
       className="bg-cover bg-center bg-no-repeat bg-top bg-fixed h-full"
-      style={{
-        backgroundImage:
-          "url(https://expedienteazul.com/financiera/wp-content/uploads/2018/05/fondo.jpg)",
-      }}
+      // style={{
+      //   backgroundImage:
+      //     `url${fondo}`,
+      // }}
     >
       <Header />
       <div className="text-center max-w-[1200px] mx-auto">

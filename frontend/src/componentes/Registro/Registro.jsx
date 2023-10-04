@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import loading from "../../multimedia/load3.gif";
 import logo from "../../multimedia/log.png";
+import country from "../../multimedia/country.svg";
+import email from "../../multimedia/email.svg";
+import person from "../../multimedia/person.svg";
+import phone from "../../multimedia/phone.svg";
 import { eventLead } from "../../utils/pixelEvents/PixelEvents";
 import { useHistory } from "react-router-dom";
 import Select from "react-select";
@@ -64,8 +68,7 @@ const Registro = ({ actualizarEstado, countries }) => {
       errors.phone = "Debe ingresar el código de su pais.";
     }
     if (!registro.countryCode && !registro.phone) {
-      errors.phone =
-        "Debe ingresar el código de su pais y su numero de celular.";
+      errors.phone = "Debe ingresar su pais y su numero de celular.";
     }
     setErrors(errors);
   };
@@ -102,6 +105,11 @@ const Registro = ({ actualizarEstado, countries }) => {
     (country) => country.code === registro.countryCode
   );
 
+  const placeholderHTML = `
+    <img src="${phone}" alt="Phone Icon" style="width: 35px; height: 35px; vertical-align: middle;" />
+    Tu número de teléfono...
+  `;
+
   return (
     <div className="max-w-[1100px] flex items-center justify-center">
       <div className="max-w-[700px] p-4 bg-white rounded-lg shadow-lg overflow-auto max-h-[700px] relative">
@@ -115,46 +123,46 @@ const Registro = ({ actualizarEstado, countries }) => {
         <div className="flex justify-center mb-2">
           <img src={logo} alt="Logo" className="w-30 h-20 p-0" />
         </div>
-        <h1 className="font-open-sans text-lg md:text-2xl font-semibold text-center text-gray-900 mt-4 mb-2">
-          INGRESA TUS DATOS PARA RECIBIR ACCESO + MATERIAL EXTRA PERSONALIZADO.
+        <h1 className="font-inter text-lg md:text-2xl font-semibold text-center text-gray-900 mt-4 mb-12">
+          INGRESA TUS DATOS PARA RECIBIR ACCESO
         </h1>
-        <h3
-          className="font-open-sans text-sm md:text-lg font-bold text-red-500 mb-2 mt-0 mx-4 md:my-0 text-left"
-          style={{ marginBottom: "1rem" }}
-        >
-          *SÓLO regístrate si tienes más de $100 dólares para depositar en tu
-          cuenta personal de trading y estás dispuesto a crecer.
-        </h3>
 
         <form className="max-w-[400px] sm:max-w-[700px] mx-auto">
-          <div className="mb-2">
-            <label
+          <div className="mb-4">
+            {/* <label
               htmlFor="name"
               className="block mb-1 sm:mb-2 text-sm text-gray-600"
             >
               Ingresá tu Primer Nombre y Apellido
-            </label>
+            </label> */}
             <input
               type="text"
               id="name"
               name="name"
               value={registro.name}
               onChange={handleChange}
-              className="h-[54px] w-full px-4 py-2 border-2 border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+              placeholder="Ingresa tu Nombre y Apellido"
+              className="input-f h-[40px] w-full px-4 pl-10 mt-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
               required
+              style={{
+                backgroundImage: `url(${person})`,
+                backgroundSize: "25px 25px",
+                backgroundPosition: "5px center",
+                backgroundRepeat: "no-repeat",
+              }}
             />
             {formSubmitted && errors.name && (
               <span className="text-red-500">{errors.name}</span>
             )}
           </div>
-          <div>
-            <label
+          <div className="mb-4">
+            {/* <label
               htmlFor="phone"
               className="block mb-1 sm:mb-2 text-sm text-gray-600"
             >
               Ingresá tu Numero de telefono
-            </label>
-            <div className="flex max-h-[54px] mb-2">
+            </label> */}
+            <div className="flex max-h-[54px] ">
               <Select
                 options={countries.map((country) => ({
                   value: [country.code, country.name],
@@ -165,17 +173,11 @@ const Registro = ({ actualizarEstado, countries }) => {
                         alt={country.name}
                         className="w-6 h-4"
                       />
-                      <span>
-                        {country.name} ({country.code})
-                      </span>
+                      <span>{country.name}</span>
                     </div>
                   ),
                 }))}
-                placeholder={
-                  <span className="sm:text-sm text-13px leading-1.25rem text-gray-600 ">
-                    País
-                  </span>
-                }
+                placeholder={null}
                 value={
                   selectedCountry
                     ? {
@@ -187,9 +189,7 @@ const Registro = ({ actualizarEstado, countries }) => {
                               alt={selectedCountry.name}
                               className="w-6 h-4"
                             />
-                            <span>
-                              {`${selectedCountry.name} (${registro.countryCode})`}
-                            </span>
+                            <span>{`${selectedCountry.name}`}</span>
                           </div>
                         ),
                       }
@@ -203,16 +203,45 @@ const Registro = ({ actualizarEstado, countries }) => {
                   });
                   validate({ ...registro, countryCode: selectedOption.value });
                 }}
-                className="w-2/3 px-4 py-2 border-2 border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                className="div-f w-2/3 py-2 border-2 border-white rounded-lg focus:outline-none focus:ring-2"
+                styles={{
+                  control: (provided) => {
+                    const controlStyles = {
+                      ...provided,
+                      "&::placeholder": {
+                        color: "lightgray", // Cambiar el color del placeholder a gris claro
+                      },
+                    };
+              
+                    if (!selectedCountry) {
+                      // Agregar estilo de fondo de imagen si no hay país seleccionado
+                      controlStyles.backgroundImage = `url(${country})`; // Reemplaza con la ruta de tu imagen de marcador de posición
+                      controlStyles.backgroundSize = "25px 25px";
+                      controlStyles.backgroundPosition = "5px center";
+                      controlStyles.backgroundRepeat = "no-repeat";
+                      controlStyles.paddingLeft = "40px"; // Ajusta el espacio para la imagen
+                    }
+              
+                    return controlStyles;
+                  },
+                }}
               />
+
               <input
                 type="text"
                 id="phone"
                 name="phone"
                 value={registro.phone}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border-2 border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                className="input-f h-[40px] w-full px-4 pl-10 mt-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                placeholder="Tu número de teléfono..."
                 required
+                style={{
+                  backgroundImage: `url(${phone})`,
+                  backgroundSize: "25px 25px",
+                  backgroundPosition: "5px center",
+                  backgroundRepeat: "no-repeat",
+                }}
               />
             </div>
             {formSubmitted && errors.phone && (
@@ -220,26 +249,34 @@ const Registro = ({ actualizarEstado, countries }) => {
             )}
           </div>
           <div className="mb-4">
-            <label
+            {/* <label
               htmlFor="email"
               className="block mb-1 sm:mb-2 text-sm text-gray-600"
             >
               Ingresá tu Correo electrónico
-            </label>
+            </label> */}
+
             <input
               type="email"
               id="email"
               name="email"
               value={registro.email}
               onChange={handleChange}
-              className="h-[54px] w-full px-4 py-2 border-2 border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+              placeholder="Ingresá tu Correo electrónico"
+              className="input-f h-[40px] w-full px-4 pl-10 mt-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
               required
+              style={{
+                backgroundImage: `url(${email})`,
+                backgroundSize: "25px 25px",
+                backgroundPosition: "5px center",
+                backgroundRepeat: "no-repeat",
+              }}
             />
             {formSubmitted && errors.email && (
               <span className="text-red-500">{errors.email}</span>
             )}
           </div>
-          <div className="flex items-center justify-center ">
+          <div className="flex items-center justify-center mt-12">
             {isLoading ? (
               <img
                 src={loading}
@@ -250,21 +287,21 @@ const Registro = ({ actualizarEstado, countries }) => {
               <button
                 type="submit"
                 onClick={handleSubmit}
-                className="h-[54px] w-full sm:w-32 bg-gradient-to-r from-cyan-400 to-cyan-600 text-white py-2 rounded-lg mx-auto block text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mb-2"
+                className="button h-[54px] w-2/3 sm:w-48 bg-gradient-to-r from-blue-400 to-blue-600 text-white py-2 rounded-xl mx-auto block text-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mb-2 hover:opacity-80"
               >
-                Registro
+                Ingresar mis datos
               </button>
             )}
           </div>
         </form>
-        <h3
+        {/* <h3
           className="font-open-sans text-sm md:text-lg font-bold text-red-500 mb-2 mt-0 mx-4 md:my-0 text-left"
           style={{ marginBottom: "1rem" }}
         >
           *Utilizaremos estos datos para ponernos en contacto y regalarte
           material de entrenamiento extra en base tus necesidades específicas de
           trading.
-        </h3>
+        </h3> */}
         <div className="text-center"></div>
         <p className="text-xs text-gray-600 text-center mt-8">
           &copy; 2023 Expediente Azul
