@@ -19,12 +19,12 @@ const YoutubeVideo = ({ videoId }) => {
   // Define las dimensiones para pantallas normales (w-3/4)
   const normalScreenOpts = {
     ...commonOpts,
-    height: "300",
-    width: "430",
+    height: "350",
+    width: "480",
   };
 
   return (
-    <div className="w-3/4 sm:w-1/2">
+    <div className="md:mx-auto justify-center w-3/4 sm:w-1/2">
       <YouTube videoId={videoId} opts={window.innerWidth < 640 ? smallScreenOpts : normalScreenOpts} />
     </div>
   );

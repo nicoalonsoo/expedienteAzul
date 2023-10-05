@@ -43,7 +43,7 @@ const LandingVideo = () => {
           <DropboxVideo />
         </div>
         <h1 className="font-open-sans text-3xl md:text-5xl font-extrabold mb-4">
-          PASO 2: REGISTRATE EN NUESTRA ACADEMIA
+          PASO 2: AGENDÁ UNA REUNION CON NUESTRO EQUIPO
         </h1>
         <div className="border-2 border-red-500 mx-4">
           <div className="mt-2">

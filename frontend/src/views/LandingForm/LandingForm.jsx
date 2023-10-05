@@ -9,6 +9,8 @@ import click from "../../multimedia/click.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { getCountries } from "../../redux/actions";
 import ClientContainer from "../../componentes/ClientContainer/ClientContainer";
+import BenefitsContainer from "../../componentes/BenefitsContainer/BenefitsContainer";
+import TextAndImage from "../../componentes/TextAndImg/TextAndImg";
 const LandingForm = () => {
   const countries = useSelector((state) => state.countries);
   const dispatch = useDispatch();
@@ -97,11 +99,18 @@ const LandingForm = () => {
         {/* <h3 className="text-base md:text-2xl font-semibold mx-6 my-2 md:my-0 md:mx-0">
           Nuevo video de 5 minutos revela...
         </h3> */}
-        <h1 className="font-inter text-4xl md:text-5xl font-extrabold text-gray-800 leading-custom mb-4 mx-4 md:mx-0">
-          COMO LOGRAR OBTENER UNA RENTABILIDAD DEL{" "}
-          <span className=" text-custom-blue">10%</span> AL{" "}
-          <span className=" text-custom-blue">30%</span> HACIENDO COPYTRADING
-        </h1>
+        <div className="overflow-hidden max-w-[400px] md:max-w-[970px] text-center mx-auto">
+          <h1 className=" font-inter text-4xl md:text-5xl font-extrabold text-gray-800 leading-custom mb-0 mt-4 mx-4 md:mx-0">
+            OTORGA FINANCIAMIENTO DE MANERA{" "}
+            <span
+              className=" text-custom-blue"
+              style={{ display: "inline-block" }}
+            >
+              EFICIENTE
+            </span>, <span className=" text-custom-blue">SEGURA</span> Y{" "}
+            <span className=" text-custom-blue">DIGITAL</span>
+          </h1>
+        </div>
         {/* <h3 className="text-lg md:text-2xl mb-2 mx-6 my-2 md:my-0 md:mx-0">
           Copiando y pegando nuestra estrategia que nos viene generando en
           promedio un 29% mensual en los últimos dos años.
@@ -139,12 +148,18 @@ const LandingForm = () => {
             QUIERO VER ESTE VIDEO
           </button>
         </div>
+        <div className="flex justify-center">
+          <BenefitsContainer />
+        </div>
+        <div className="flex justify-center text-center">
+          <TextAndImage />
+        </div>
       </div>
       <div className="mx-auto flex items-center justify-center">
         <ClientContainer />
       </div>
       <div className="mt-4">
-      <div style={{ display: "flex", justifyContent: "center" }}>
+        <div style={{ display: "flex", justifyContent: "center" }}>
           <button
             className="ov-btn-slide-left max-w-[700px] bg-gradient-to-r from-blue-400 to-blue-700 text-white text-2xl py-4 px-6 rounded-xl mb-2 mx-4 my-0 md:my-2"
             onClick={() => handleClick(true)}

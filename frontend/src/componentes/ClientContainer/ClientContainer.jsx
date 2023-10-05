@@ -9,17 +9,17 @@ const ClientContainer = () => {
 
   return (
     <div
-      className="max-w-[330px] md:max-w-[1400px] p-8 rounded-lg"
+      className="max-w-[330px] md:max-w-[1600px] p-8 rounded-lg"
       style={{
         backgroundImage: `url(${backgroundImageUrl})`,
         backgroundSize: "cover", // Ajusta el tamaño de la imagen de fondo según tus necesidades
         backgroundRepeat: "no-repeat",
       }}
     >
-      <h1 className="mb-8 font-catamaran text-2xl text-white">Testimoniales</h1>
-      <div className="flex flex-wrap -mx-2">
+      <h1 className="mb-8 font-catamaran text-4xl text-white">Testimoniales</h1>
+      <div className="mr-0 md:mr-[155px] flex flex-wrap -mx-2 justify-center">
         {videoIds.map((videoId, index) => (
-          <div key={index} className="sm:w-1/2 md:w-1/3 lg:w-1/3 p-2">
+          <div key={index} className="mb-12 justify-center sm:w-1/2 md:w-1/3 lg:w-1/2 p-2">
             <YoutubeVideo videoId={videoId} />
           </div>
         ))}
