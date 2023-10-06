@@ -123,7 +123,7 @@ const Registro = ({ actualizarEstado, countries }) => {
         <div className="flex justify-center mb-2">
           <img src={logo} alt="Logo" className="w-30 h-20 p-0" />
         </div>
-        <h1 className="font-inter text-lg md:text-2xl font-semibold text-center text-gray-900 mt-4 mb-12">
+        <h1 className="font-catamaran text-lg md:text-2xl font-semibold text-center text-gray-900 mt-4 mb-12">
           INGRESA TUS DATOS PARA RECIBIR ACCESO
         </h1>
 

@@ -99,16 +99,18 @@ const LandingForm = () => {
         {/* <h3 className="text-base md:text-2xl font-semibold mx-6 my-2 md:my-0 md:mx-0">
           Nuevo video de 5 minutos revela...
         </h3> */}
-        <div className="overflow-hidden max-w-[400px] md:max-w-[970px] text-center mx-auto">
-          <h1 className=" font-inter text-4xl md:text-5xl font-extrabold text-gray-800 leading-custom mb-0 mt-4 mx-4 md:mx-0">
-            OTORGA FINANCIAMIENTO DE MANERA{" "}
-            <span
-              className=" text-custom-blue"
-              style={{ display: "inline-block" }}
-            >
-              EFICIENTE
-            </span>, <span className=" text-custom-blue">SEGURA</span> Y{" "}
-            <span className=" text-custom-blue">DIGITAL</span>
+        <div className="overflow-hidden max-w-[400px] md:max-w-[1000px] text-center mx-auto">
+          <h1 className=" font-inter text-3xl md:text-4xl font-extrabold text-gray-800 leading-custom mb-0 mt-4 mx-4 md:mx-0">
+          SISTEMATIZA TU {" "}
+          <span className=" text-custom-blue">SOFOM</span>
+          {" "}O {" "}
+          <span className=" text-custom-blue">SOFITO</span>
+          {" "} Y REDUCE LA TASA DE ABANDONO DE CLIENTES EN UN{" "}
+            <span className=" text-custom-blue">60%</span>.{" "}
+            OTORGANDO FINANCIAMIENTO DE MANERA{" "}
+            <span className=" text-custom-blue">SEGURA</span>{" "}
+             Y {" "}
+             <span className=" text-custom-blue">EFICIENTE</span>
           </h1>
         </div>
         {/* <h3 className="text-lg md:text-2xl mb-2 mx-6 my-2 md:my-0 md:mx-0">
@@ -145,7 +147,7 @@ const LandingForm = () => {
                 fill: "white",
               }}
             />
-            QUIERO VER ESTE VIDEO
+            QUIERO UNA DEMOSTRACIÓN
           </button>
         </div>
         <div className="flex justify-center">
@@ -179,7 +181,7 @@ const LandingForm = () => {
                 fill: "white",
               }}
             />
-            QUIERO REGISTRARME
+            QUIERO UNA DEMOSTRACIÓN
           </button>
         </div>
       </div>
