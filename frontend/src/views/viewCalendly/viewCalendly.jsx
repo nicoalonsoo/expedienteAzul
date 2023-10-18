@@ -20,9 +20,7 @@ const ViewCalendly = () => {
           Estas a un paso de tu Sesión...
         </h1>
         <h3 className="text-lg md:text-2xl mb-2 mx-6 my-2 md:my-0 md:mx-0">
-          Copiando y pegando nuestra estrategia que nos viene generando en
-          promedio un 29% mensual en los últimos dos años. Vas a poder ingresar
-          100% GRATIS cumpliendo dos requisitos.
+        Aceleramos significativamente el proceso de seguimiento, validación de requisitos y dictamen final, reduciendo las fricciones con el cliente, el desorden y la dificultad en el seguimiento.
         </h3>
         <Calendly />
       </div>

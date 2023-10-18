@@ -7,6 +7,7 @@ import Footer from "../../componentes/Footer/Footer";
 import click from "../../multimedia/click.svg";
 import { useHistory } from "react-router-dom";
 import { eventViewContent } from "../../utils/pixelEvents/PixelEvents";
+import { motion } from "framer-motion";
 const LandingVideo = () => {
   const history = useHistory();
   useEffect(() => {
@@ -16,6 +17,21 @@ const LandingVideo = () => {
   const handleClick = () => {
     history.push("/viewcalendly");
     eventViewContent();
+  };
+
+  const cardVariants = {
+    offscreen: {
+      y: 50,
+      opacity: 0,
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        duration: 0.5,
+      },
+    },
   };
 
   return (
@@ -28,22 +44,40 @@ const LandingVideo = () => {
     >
       <Header />
       <div className="text-center max-w-[1200px] mx-auto">
-        <div className="overflow-hidden max-w-[400px] md:max-w-[970px] text-center mt-4 mx-auto">
-          <h1 className=" font-inter text-4xl md:text-5xl font-extrabold text-gray-800 leading-custom mt-4 mx-4 md:mx-0">
+        <div className=" max-w-[400px] md:max-w-[970px] text-center mt-4 mx-auto">
+          <motion.h1
+            className=" font-inter text-4xl md:text-5xl font-extrabold text-gray-800 leading-custom mt-4 mx-4 md:mx-0"
+            variants={cardVariants}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+          >
             PASO 1: <span className=" text-custom-blue">MIRA EL VIDEO</span>
-          </h1>
+          </motion.h1>
         </div>
-        <div className="mx-auto max-w-[700px] mb-8 mt-8">
+        <div className="mx-auto max-w-[700px] mb-6 mt-4">
           <DropboxVideo />
         </div>
-        <div className="overflow-hidden max-w-[350px] md:max-w-[970px] text-center mt-4 mx-auto">
-          <h1 className="font-open-sans text-3xl md:text-5xl font-extrabold mb-4">
-            PASO 2: <span className=" text-custom-blue">AGENDÁ UNA REUNION</span> {" "}CON NUESTRO EQUIPO
-          </h1>
+        <div className="max-w-[350px] md:max-w-[970px] text-center mt-4 mx-auto">
+          <motion.h1
+            className="font-open-sans text-3xl md:text-5xl font-extrabold mb-4"
+            variants={cardVariants}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+          >
+            PASO 2:{" "}
+            <span className=" text-custom-blue">AGENDÁ UNA REUNION</span> CON
+            NUESTRO EQUIPO
+          </motion.h1>
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <button
+          <motion.button
             className="ov-btn-slide-left max-w-[700px] bg-gradient-to-r from-blue-400 to-blue-700 text-white text-2xl py-4 px-6 rounded-xl mb-2 mx-4 my-0 md:my-2"
+            variants={cardVariants}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
             onClick={() => handleClick()}
             style={{
               marginBottom: "3rem",
@@ -62,10 +96,10 @@ const LandingVideo = () => {
               }}
             />
             AGENDÁ TU REUNIÓN
-          </button>
+          </motion.button>
         </div>
-        <div className="border-2 border-red-500 mx-4 mb-20 mt-8">
-          <div className="mt-2">
+        {/* <div className="border-2 border-red-500 mx-4 mb-20 mt-8"> */}
+        {/* <div className="mt-2">
             <h3 className="font-open-sans text-sm md:text-lg font-extrabold text-red-500 mb-4 mx-4 my-4 md:my-0">
               *Si ya tienes cuenta en Libertex puedes registrarte con el mismo
               nombre y número de teléfono pero distinto email.
@@ -81,8 +115,8 @@ const LandingVideo = () => {
               *No somos una empresa multinivel ni un fondo de inversión, somos
               una academia de trading asociada al broker Libertex.
             </h3>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
       </div>
       <Footer />
     </div>
