@@ -122,8 +122,7 @@ const LandingForm = () => {
             variants={cardVariants}
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: true, amount: 0.8 }}
-          >
+            viewport={{ once: true, amount: 0.8 }}>
             SISTEMATIZA TU <span className=" text-custom-blue">SOFOM</span> O{" "}
             <span className=" text-custom-blue">SOFIPO</span> Y REDUCE LA TASA
             DE ABANDONO DE CLIENTES EN UN{" "}
