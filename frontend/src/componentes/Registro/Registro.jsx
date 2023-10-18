@@ -10,6 +10,7 @@ import { eventLead } from "../../utils/pixelEvents/PixelEvents";
 import { useHistory } from "react-router-dom";
 import Select from "react-select";
 import "./Registro.css";
+import { motion } from "framer-motion";
 const Registro = ({ actualizarEstado, countries }) => {
   const history = useHistory();
   const [registro, setRegistro] = useState({
@@ -109,9 +110,27 @@ const Registro = ({ actualizarEstado, countries }) => {
     <img src="${phone}" alt="Phone Icon" style="width: 35px; height: 35px; vertical-align: middle;" />
     Tu número de teléfono...
   `;
-
+  const cardVariants = {
+    offscreen: {
+      y: -150,
+      opacity: 0,
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        duration: 0.5,
+      },
+    },
+  };
   return (
-    <div className="max-w-[1100px] flex items-center justify-center">
+    <motion.div className="max-w-[1100px] flex items-center justify-center"
+    variants={cardVariants}
+    initial="offscreen"
+    whileInView="onscreen"
+    viewport={{ once: true, amount: 0.8 }}
+    >
       <div className="max-w-[700px] p-4 bg-white rounded-lg shadow-lg overflow-auto max-h-[700px] relative">
         <button
           className="bg-gray-500 hover:bg-gray-700 transition duration-300 ease-in-out text-white font-semibold text-sm py-1 px-2 rounded absolute top-2 right-0 mt-2 mr-2"
@@ -307,7 +326,7 @@ const Registro = ({ actualizarEstado, countries }) => {
           &copy; 2023 Expediente Azul
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -11,6 +11,7 @@ import { getCountries } from "../../redux/actions";
 import ClientContainer from "../../componentes/ClientContainer/ClientContainer";
 import BenefitsContainer from "../../componentes/BenefitsContainer/BenefitsContainer";
 import TextAndImage from "../../componentes/TextAndImg/TextAndImg";
+import { motion } from "framer-motion";
 const LandingForm = () => {
   const countries = useSelector((state) => state.countries);
   const dispatch = useDispatch();
@@ -82,6 +83,22 @@ const LandingForm = () => {
   const filterCountries = modifiedCountries.filter(
     (country) => !filteredCountryNames.includes(country.name)
   );
+
+  const cardVariants = {
+    offscreen: {
+      y: 50,
+      opacity: 0,
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
     <div
       className=" bg-cover bg-center bg-no-repeat bg-top bg-fixed h-full"
@@ -99,19 +116,22 @@ const LandingForm = () => {
         {/* <h3 className="text-base md:text-2xl font-semibold mx-6 my-2 md:my-0 md:mx-0">
           Nuevo video de 5 minutos revela...
         </h3> */}
-        <div className="overflow-hidden max-w-[400px] md:max-w-[1000px] text-center mx-auto">
-          <h1 className=" font-inter text-3xl md:text-4xl font-extrabold text-gray-800 leading-custom mb-0 mt-4 mx-4 md:mx-0">
-          SISTEMATIZA TU {" "}
-          <span className=" text-custom-blue">SOFOM</span>
-          {" "}O {" "}
-          <span className=" text-custom-blue">SOFITO</span>
-          {" "} Y REDUCE LA TASA DE ABANDONO DE CLIENTES EN UN{" "}
-            <span className=" text-custom-blue">60%</span>.{" "}
-            OTORGANDO FINANCIAMIENTO DE MANERA{" "}
-            <span className=" text-custom-blue">SEGURA</span>{" "}
-             Y {" "}
-             <span className=" text-custom-blue">EFICIENTE</span>
-          </h1>
+        <div className=" max-w-[400px] md:max-w-[1000px] text-center mx-auto">
+          <motion.h1
+            className=" font-inter text-3xl md:text-4xl font-extrabold text-gray-800 leading-custom mb-0 mt-4 mx-4 md:mx-0"
+            variants={cardVariants}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+          >
+            SISTEMATIZA TU <span className=" text-custom-blue">SOFOM</span> O{" "}
+            <span className=" text-custom-blue">SOFITO</span> Y REDUCE LA TASA
+            DE ABANDONO DE CLIENTES EN UN{" "}
+            <span className=" text-custom-blue">60%</span>. OTORGANDO
+            FINANCIAMIENTO DE MANERA{" "}
+            <span className=" text-custom-blue">SEGURA</span> Y{" "}
+            <span className=" text-custom-blue">EFICIENTE</span>
+          </motion.h1>
         </div>
         {/* <h3 className="text-lg md:text-2xl mb-2 mx-6 my-2 md:my-0 md:mx-0">
           Copiando y pegando nuestra estrategia que nos viene generando en
@@ -128,8 +148,12 @@ const LandingForm = () => {
           />
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <button
+          <motion.button
             className="ov-btn-slide-left max-w-[700px] bg-gradient-to-r from-blue-400 to-blue-700 text-white text-2xl py-4 px-6 rounded-xl mb-2 mx-4 my-0 md:my-2"
+            variants={cardVariants}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
             onClick={() => handleClick(true)}
             style={{
               marginBottom: "3rem",
@@ -148,7 +172,7 @@ const LandingForm = () => {
               }}
             />
             QUIERO UNA DEMOSTRACIÓN
-          </button>
+          </motion.button>
         </div>
         <div className="flex justify-center">
           <BenefitsContainer />
@@ -162,8 +186,12 @@ const LandingForm = () => {
       </div>
       <div className="mt-4">
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <button
+          <motion.button
             className="ov-btn-slide-left max-w-[700px] bg-gradient-to-r from-blue-400 to-blue-700 text-white text-2xl py-4 px-6 rounded-xl mb-2 mx-4 my-0 md:my-2"
+            variants={cardVariants}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
             onClick={() => handleClick(true)}
             style={{
               marginBottom: "3rem",
@@ -182,10 +210,10 @@ const LandingForm = () => {
               }}
             />
             QUIERO UNA DEMOSTRACIÓN
-          </button>
+          </motion.button>
         </div>
       </div>
-      <div className="text-center mx-auto max-w-[330px] md:max-w-[1150px] border-2 mt-20 mb-32 border-red-500 ">
+      {/* <div className="text-center mx-auto max-w-[330px] md:max-w-[1150px] border-2 mt-20 mb-32 border-red-500 ">
         <h3 className="font-open-sans text-sm md:text-lg font-bold text-red-500 mb-4 mx-2 my-2 md:my-0">
           *Si no tienes mínimo $100 dólares para depositar en tu cuenta de
           trading no te registres porque esto no va funcionar para ti.
@@ -194,7 +222,7 @@ const LandingForm = () => {
           *No somos una empresa multinivel, ni un fondo de inversión. Somos una
           academia de trading partner oficial del broker Libertex.
         </h3>
-      </div>
+      </div> */}
       {showForm && (
         <>
           <div

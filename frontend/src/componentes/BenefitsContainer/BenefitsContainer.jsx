@@ -1,6 +1,5 @@
 import React from "react";
 import Benefits from "../Benefits/Benefits";
-
 const BenefitsContainer = () => {
   const datosComponenteB = [
     { imageUrl: "https://expedienteazul.com/financiera/wp-content/uploads/2018/05/negocios.png", text: "Cierras 40% más negocios" },

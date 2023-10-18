@@ -1,6 +1,6 @@
 import React from "react";
 import YouTube from "react-youtube";
-
+import { motion } from "framer-motion";
 const YoutubeVideo = ({ videoId }) => {
   // Define las opciones comunes para todos los tamaños de pantalla
   const commonOpts = {
@@ -22,11 +22,29 @@ const YoutubeVideo = ({ videoId }) => {
     height: "350",
     width: "480",
   };
+  const cardVariants = {
+    offscreen: {
+      y: 50,
+      opacity: 0,
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        duration: 0.5,
+      },
+    },
+  };
 
   return (
-    <div className="md:mx-auto justify-center w-3/4 sm:w-1/2">
+    <motion.div className="md:mx-auto justify-center w-3/4 sm:w-1/2"
+    variants={cardVariants}
+    initial="offscreen"
+    whileInView="onscreen"
+    viewport={{ once: true, amount: 0.8 }}>
       <YouTube videoId={videoId} opts={window.innerWidth < 640 ? smallScreenOpts : normalScreenOpts} />
-    </div>
+    </motion.div>
   );
 };
 

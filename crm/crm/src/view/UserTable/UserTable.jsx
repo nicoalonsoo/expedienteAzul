@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getUsers, updateFilteredUsers, orderUsers } from "../../redux/actions";
+import { getUsers, updateFilteredUsers } from "../../redux/actions";
 import ExcelDownloadButton from "../../componentes/ExcellButton/excellButton";
 import Dropdown from "../../componentes/Dropdown/Dropdown";
 import Up from "../../multimedia/up.svg";
@@ -250,7 +250,7 @@ const UserTable = () => {
                   ><img
                     src={Down} // Ruta a tu imagen de flecha
                     alt="arrow up "
-                    className="absolute top-1/2 right-6 transform -translate-y-1/2 text-blue-500"
+                    className="absolute top-1/2 transform -translate-y-1/2 text-blue-500"
                     style={{ width: "16px", height: "16px" }} // Ajusta el tamaño según tus necesidades
                   />
                   </button> : <button
@@ -258,7 +258,7 @@ const UserTable = () => {
                   ><img
                     src={Up} // Ruta a tu imagen de flecha
                     alt="arrow up "
-                    className="absolute top-1/2 right-6 transform -translate-y-1/2 text-blue-500"
+                    className="absolute top-1/2 transform -translate-y-1/2 text-blue-500"
                     style={{ width: "16px", height: "16px" }} // Ajusta el tamaño según tus necesidades
                   />
                   </button>}
