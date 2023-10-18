@@ -125,7 +125,7 @@ const LandingForm = () => {
             viewport={{ once: true, amount: 0.8 }}
           >
             SISTEMATIZA TU <span className=" text-custom-blue">SOFOM</span> O{" "}
-            <span className=" text-custom-blue">SOFITO</span> Y REDUCE LA TASA
+            <span className=" text-custom-blue">SOFIPO</span> Y REDUCE LA TASA
             DE ABANDONO DE CLIENTES EN UN{" "}
             <span className=" text-custom-blue">60%</span>. OTORGANDO
             FINANCIAMIENTO DE MANERA{" "}
