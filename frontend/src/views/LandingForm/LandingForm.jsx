@@ -137,7 +137,7 @@ const LandingForm = () => {
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.8 }}>
-            FACILITAMOS LA GESTIÓN HIPOTECARIA PARA{" "}<span className=" text-custom-blue">INMOBILIARIAS</span>, <br/>AGILIZANDO{" "}
+            FACILITAMOS LA <br/>GESTIÓN HIPOTECARIA <br/>PARA{" "}<span className=" text-custom-blue">INMOBILIARIAS</span>, <br/>AGILIZANDO{" "}
             <span className=" text-custom-blue">PROCESOS</span>, GARANTIZANDO{" "}
             <span className=" text-custom-blue">SEGURIDAD</span>{" "}Y AUMENTANDO TASAS DE{" "}
             <span className=" text-custom-blue">COLOCACIÓN</span>{" "}GRACIAS A <br/>NUESTRO{" "}
