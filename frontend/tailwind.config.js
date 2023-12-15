@@ -19,7 +19,7 @@ module.exports = withMT({
       },
       lineHeight: {
         '1.25rem': '1.25rem',
-        'custom': '1',
+        'custom': '1.77rem',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

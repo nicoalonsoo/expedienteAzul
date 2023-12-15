@@ -116,7 +116,7 @@ const LandingForm = () => {
         {/* <h3 className="text-base md:text-2xl font-semibold mx-6 my-2 md:my-0 md:mx-0">
           Nuevo video de 5 minutos revela...
         </h3> */}
-        <div className=" max-w-[400px] md:max-w-[1000px] text-center mx-auto">
+        <div className="hidden md:flex max-w-[400px] md:max-w-[1000px] text-center mx-auto">
           <motion.h1
             className=" font-inter text-3xl md:text-4xl font-extrabold text-gray-800 leading-custom mb-0 mt-4 mx-4 md:mx-0"
             variants={cardVariants}
@@ -124,6 +124,20 @@ const LandingForm = () => {
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.8 }}>
             FACILITAMOS LA GESTIÓN HIPOTECARIA PARA{" "}<span className=" text-custom-blue">INMOBILIARIAS</span>, AGILIZANDO{" "}
+            <span className=" text-custom-blue">PROCESOS</span>, GARANTIZANDO{" "}
+            <span className=" text-custom-blue">SEGURIDAD</span>{" "}Y AUMENTANDO TASAS DE{" "}
+            <span className=" text-custom-blue">COLOCACIÓN</span>{" "}GRACIAS A NUESTRO{" "}
+            <span className=" text-custom-blue">SOFTWARE</span>
+          </motion.h1>
+        </div>
+        <div className="md:hidden max-w-full md:max-w-[1000px] text-center mx-auto">
+          <motion.h1
+            className=" font-inter text-[27px] md:text-4xl font-extrabold text-gray-800 leading-custom mb-4 mt-4 mx-4 md:mx-0"
+            variants={cardVariants}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}>
+            FACILITAMOS LA GESTIÓN HIPOTECARIA PARA{" "}<span className=" text-custom-blue">INMOBILIARIAS</span>, <br/>AGILIZANDO{" "}
             <span className=" text-custom-blue">PROCESOS</span>, GARANTIZANDO{" "}
             <span className=" text-custom-blue">SEGURIDAD</span>{" "}Y AUMENTANDO TASAS DE{" "}
             <span className=" text-custom-blue">COLOCACIÓN</span>{" "}GRACIAS A NUESTRO{" "}
