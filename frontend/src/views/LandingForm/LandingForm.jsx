@@ -132,7 +132,7 @@ const LandingForm = () => {
         </div>
         <div className="md:hidden max-w-full md:max-w-[1000px] text-center mx-auto">
           <motion.h1
-            className="font-inter text-[23px] md:text-4xl font-extrabold text-gray-800 leading-custom mb-4 mt-4 mx-4 md:mx-0"
+            className="font-inter text-[24px] md:text-4xl font-extrabold text-gray-800 leading-custom mb-4 mt-4 mx-4 md:mx-0"
             variants={cardVariants}
             initial="offscreen"
             whileInView="onscreen"
