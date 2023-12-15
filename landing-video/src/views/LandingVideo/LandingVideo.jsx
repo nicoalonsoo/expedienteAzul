@@ -31,9 +31,12 @@ const LandingVideo = () => {
           style={{ marginBottom: "1rem" }}
         >
           {" "}
-          COMO LOGRAR OBTENER UNA RENTABILIDAD DEL{" "}
-          <span className="underline">10%</span> AL{" "}
-          <span className="underline">30%</span> MENSUAL HACIENDO COPYTRADING
+         FACILITAMOS LA GESTIÓN HIPOTECARIA PARA{" "}
+          <span className="underline">INMOBILIARIAS</span>, AGILIZANDO{" "}
+          <span className="underline">PROCESOS</span>, GARANTIZANDO{" "}
+          <span className="underline">SEGURIDAD</span>{" "}Y AUMENTANDO TASAS DE{" "}
+          <span className="underline">COLOCACIÓN</span> {" "}GRACIAS A NUESTRO{" "}
+          <span className="underline">SOFTWARE</span>.
         </h3>
         <h1 className="font-open-sans text-3xl md:text-5xl font-extrabold mb-4">
           PASO 1: MIRA EL VIDEO

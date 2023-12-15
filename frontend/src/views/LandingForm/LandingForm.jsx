@@ -123,13 +123,11 @@ const LandingForm = () => {
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.8 }}>
-            SISTEMATIZA TU <span className=" text-custom-blue">SOFOM</span> O{" "}
-            <span className=" text-custom-blue">SOFIPO</span> Y REDUCE LA TASA
-            DE ABANDONO DE CLIENTES EN UN{" "}
-            <span className=" text-custom-blue">60%</span>. OTORGANDO
-            FINANCIAMIENTO DE MANERA{" "}
-            <span className=" text-custom-blue">SEGURA</span> Y{" "}
-            <span className=" text-custom-blue">EFICIENTE</span>
+            FACILITAMOS LA GESTIÓN HIPOTECARIA PARA{" "}<span className=" text-custom-blue">INMOBILIARIAS</span>, AGILIZANDO{" "}
+            <span className=" text-custom-blue">PROCESOS</span>, GARANTIZANDO{" "}
+            <span className=" text-custom-blue">SEGURIDAD</span>{" "}Y AUMENTANDO TASAS DE{" "}
+            <span className=" text-custom-blue">COLOCACIÓN</span>{" "}GRACIAS A NUESTRO{" "}
+            <span className=" text-custom-blue">SOFTWARE</span>
           </motion.h1>
         </div>
         {/* <h3 className="text-lg md:text-2xl mb-2 mx-6 my-2 md:my-0 md:mx-0">
