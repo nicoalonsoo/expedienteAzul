@@ -11,7 +11,7 @@ import MetaPixel from "./utils/MetaPixel/MetaPixel";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-        <MetaPixel />
+    <MetaPixel />
     <Provider store={store}>
       <BrowserRouter>
         <ThemeProvider>
