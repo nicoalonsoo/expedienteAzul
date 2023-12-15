@@ -132,7 +132,7 @@ const LandingForm = () => {
         </div>
         <div className="md:hidden max-w-full md:max-w-[1000px] text-center mx-auto">
           <motion.h1
-            className=" font-inter text-[27px] md:text-4xl font-extrabold text-gray-800 leading-custom mb-4 mt-4 mx-4 md:mx-0"
+            className="font-inter text-[23px] md:text-4xl font-extrabold text-gray-800 leading-custom mb-4 mt-4 mx-4 md:mx-0"
             variants={cardVariants}
             initial="offscreen"
             whileInView="onscreen"
@@ -140,7 +140,7 @@ const LandingForm = () => {
             FACILITAMOS LA GESTIÓN HIPOTECARIA PARA{" "}<span className=" text-custom-blue">INMOBILIARIAS</span>, <br/>AGILIZANDO{" "}
             <span className=" text-custom-blue">PROCESOS</span>, GARANTIZANDO{" "}
             <span className=" text-custom-blue">SEGURIDAD</span>{" "}Y AUMENTANDO TASAS DE{" "}
-            <span className=" text-custom-blue">COLOCACIÓN</span>{" "}GRACIAS A NUESTRO{" "}
+            <span className=" text-custom-blue">COLOCACIÓN</span>{" "}GRACIAS A <br/>NUESTRO{" "}
             <span className=" text-custom-blue">SOFTWARE</span>
           </motion.h1>
         </div>
