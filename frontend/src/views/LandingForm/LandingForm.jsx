@@ -122,12 +122,17 @@ const LandingForm = () => {
             variants={cardVariants}
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: true, amount: 0.8 }}>
-            FACILITAMOS LA GESTIÓN HIPOTECARIA PARA{" "}<span className=" text-custom-blue">INMOBILIARIAS</span>, AGILIZANDO{" "}
+            viewport={{ once: true, amount: 0.8 }}
+          >
+            ACELERAMOS Y ASEGURAMOS EL{" "}
+            <span className=" text-custom-blue">CIERRE DE OPERACIONES</span>{" "}
+            INMOVILIARIAS AGILIZANDO{" "}
             <span className=" text-custom-blue">PROCESOS</span>, GARANTIZANDO{" "}
-            <span className=" text-custom-blue">SEGURIDAD</span>{" "}Y AUMENTANDO TASAS DE{" "}
-            <span className=" text-custom-blue">COLOCACIÓN</span>{" "}GRACIAS A NUESTRO{" "}
-            <span className=" text-custom-blue">SOFTWARE</span>
+            <span className=" text-custom-blue">SEGURIDAD</span>, E
+            INCREMENTANDO EL{" "}
+            <span className=" text-custom-blue">PORCENTAJE DE CIERRE</span>{" "}
+            GRACIAS A NUESTRA{" "}
+            <span className=" text-custom-blue">PLATAFORMA TECNOLÓGICA</span>
           </motion.h1>
         </div>
         <div className="md:hidden max-w-full md:max-w-[1000px] text-center mx-auto">
@@ -136,12 +141,17 @@ const LandingForm = () => {
             variants={cardVariants}
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: true, amount: 0.8 }}>
-            FACILITAMOS LA <br/>GESTIÓN HIPOTECARIA <br/>PARA{" "}<span className=" text-custom-blue">INMOBILIARIAS</span>, <br/>AGILIZANDO{" "}
+            viewport={{ once: true, amount: 0.8 }}
+          >
+            ACELERAMOS Y ASEGURAMOS EL{" "}
+            <span className=" text-custom-blue">CIERRE DE OPERACIONES</span>{" "}
+            INMOVILIARIAS AGILIZANDO{" "}
             <span className=" text-custom-blue">PROCESOS</span>, GARANTIZANDO{" "}
-            <span className=" text-custom-blue">SEGURIDAD</span>{" "}Y AUMENTANDO TASAS DE{" "}
-            <span className=" text-custom-blue">COLOCACIÓN</span>{" "}GRACIAS A <br/>NUESTRO{" "}
-            <span className=" text-custom-blue">SOFTWARE</span>
+            <span className=" text-custom-blue">SEGURIDAD</span>, E
+            INCREMENTANDO EL{" "}
+            <span className=" text-custom-blue">PORCENTAJE DE CIERRE</span>{" "}
+            GRACIAS A NUESTRA{" "}
+            <span className=" text-custom-blue">PLATAFORMA TECNOLÓGICA</span>
           </motion.h1>
         </div>
         {/* <h3 className="text-lg md:text-2xl mb-2 mx-6 my-2 md:my-0 md:mx-0">

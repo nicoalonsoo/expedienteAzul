@@ -13,7 +13,7 @@ const BenefitsContainer = () => {
   return (
     <div className="flex flex-wrap max-w-[330px] md:max-w-[1300px]">
       {datosComponenteB.map((datos, index) => (
-        <div key={index} className="w-full sm:w-1/2 md:w-1/3 p-4">
+        <div key={index} className="w-full sm:w-1/2 md:w-1/3 p-4 mb-4">
           <Benefits imageUrl={datos.imageUrl} text={datos.text} />
         </div>
       ))}
