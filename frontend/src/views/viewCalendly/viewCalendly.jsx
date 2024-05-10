@@ -22,7 +22,10 @@ const ViewCalendly = () => {
         <h3 className="text-lg md:text-2xl mb-2 mx-6 my-2 md:my-0 md:mx-0">
         Aceleramos significativamente el proceso de seguimiento, validación de requisitos y dictamen final, reduciendo las fricciones con el cliente, el desorden y la dificultad en el seguimiento.
         </h3>
+        <div className="h-[866px] lg:h-auto">
         <Calendly />
+        </div>
+       
       </div>
       <Footer />
     </div>

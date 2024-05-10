@@ -64,7 +64,7 @@ const LandingVideo = () => {
             variants={cardVariants}
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: true, amount: 0.8 }}
+            viewport={{ once: true, amount: 0.1 }}
           >
             PASO 2:{" "}
             <span className=" text-custom-blue">AGENDÁ UNA REUNION</span> CON
