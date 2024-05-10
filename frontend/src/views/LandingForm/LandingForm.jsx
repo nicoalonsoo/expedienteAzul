@@ -12,6 +12,7 @@ import ClientContainer from "../../componentes/ClientContainer/ClientContainer";
 import BenefitsContainer from "../../componentes/BenefitsContainer/BenefitsContainer";
 import TextAndImage from "../../componentes/TextAndImg/TextAndImg";
 import { motion } from "framer-motion";
+import YoutubeFrame from "../../multimedia/youtubeFrame.jpeg"
 const LandingForm = () => {
   const countries = useSelector((state) => state.countries);
   const dispatch = useDispatch();
@@ -108,59 +109,30 @@ const LandingForm = () => {
     >
       <Header />
       <div className="text-center py-4 max-w-[1223px] mx-auto">
-        {/* <h3 
-        className="font-open-sans text-sm md:text-lg font-bold text-red-500 mb-4 mt-0 mx-4 md:my-0">
-          🚨 SOLO PARA PERSONAS QUE SE ESTÁN INICIANDO EN EL TRADING O QUE YA SE
-          INICIARON PERO NO TIENEN BUENOS RESULTADOS. 🚨
-        </h3> */}
-        {/* <h3 className="text-base md:text-2xl font-semibold mx-6 my-2 md:my-0 md:mx-0">
-          Nuevo video de 5 minutos revela...
-        </h3> */}
-        <div className="hidden md:flex max-w-[400px] md:max-w-[1000px] text-center mx-auto">
+        <div className="">
           <motion.h1
-            className=" font-inter text-3xl md:text-4xl font-extrabold text-gray-800 leading-custom mb-0 mt-4 mx-4 md:mx-0"
+            className="text-balance uppercase font-inter text-2xl md:text-4xl font-extrabold text-gray-800 leading-custom mb-0 mt-4 mx-4 md:mx-0"
             variants={cardVariants}
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.8 }}
           >
-            ACELERAMOS Y ASEGURAMOS EL{" "}
-            <span className=" text-custom-blue">CIERRE DE OPERACIONES</span>{" "}
-            INMOVILIARIAS AGILIZANDO{" "}
-            <span className=" text-custom-blue">PROCESOS</span>, GARANTIZANDO{" "}
-            <span className=" text-custom-blue">SEGURIDAD</span>, E
-            INCREMENTANDO EL{" "}
-            <span className=" text-custom-blue">PORCENTAJE DE CIERRE</span>{" "}
-            GRACIAS A NUESTRA{" "}
-            <span className=" text-custom-blue">PLATAFORMA TECNOLÓGICA</span>
+            <span className=" text-custom-blue">Tecnología Innovadora</span>{" "}
+            transforma el sector financiero en Mexico:{" "}
+            <span className=" text-custom-blue">Aumenta </span> la colocación de
+            financiamiento{" "}
+            <span className=" text-custom-blue">reduciendo el riesgo</span> de
+            fraudes, multas y problemas a la hora de recuperar.
           </motion.h1>
         </div>
-        <div className="md:hidden max-w-full md:max-w-[1000px] text-center mx-auto">
-          <motion.h1
-            className="font-inter text-[24px] md:text-4xl font-extrabold text-gray-800 leading-custom mb-4 mt-4 mx-2 md:mx-0"
-            variants={cardVariants}
-            initial="offscreen"
-            whileInView="onscreen"
-            viewport={{ once: true, amount: 0.8 }}
-          >
-            ACELERAMOS Y ASEGURAMOS EL{" "}
-            <span className=" text-custom-blue">CIERRE DE OPERACIONES</span>{" "}
-            INMOVILIARIAS AGILIZANDO{" "}
-            <span className=" text-custom-blue">PROCESOS</span>, GARANTIZANDO{" "}
-            <span className=" text-custom-blue">SEGURIDAD</span>, E
-            INCREMENTANDO EL{" "}
-            <span className=" text-custom-blue">PORCENTAJE DE CIERRE</span>{" "}
-            GRACIAS A NUESTRA{" "}
-            <span className=" text-custom-blue">PLATAFORMA TECNOLÓGICA</span>
-          </motion.h1>
-        </div>
+       
         {/* <h3 className="text-lg md:text-2xl mb-2 mx-6 my-2 md:my-0 md:mx-0">
           Copiando y pegando nuestra estrategia que nos viene generando en
           promedio un 29% mensual en los últimos dos años.
         </h3> */}
         <div className="mx-auto max-w-[700px] p-4 sm:p-4 mb-0 mt-0 sm:mb-2 sm:mt-2">
           <img
-            src={gif}
+            src={YoutubeFrame}
             alt="gif"
             className="mr-2 sm:mr-0 transition-transform duration-300 ease-in-out transform scale-100 hover:scale-110 rounded-xl border-2 border-blue-500"
             onMouseEnter={handleImageHover}

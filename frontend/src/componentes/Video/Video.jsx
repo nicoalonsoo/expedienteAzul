@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef } from "react";
-import video from '../../multimedia/video.mp4'
+import "./Video.css";
 function Video() {
   const videoRef = useRef(null);
 
@@ -9,20 +9,17 @@ function Video() {
     }
   };
 
-  useEffect(() => {
-    const muteTimeout = setTimeout(() => {
-      playVideo();
-    }, 1500);
+  // useEffect(() => {
+  //   const muteTimeout = setTimeout(() => {
+  //     playVideo();
+  //   }, 1500);
 
-    return () => clearTimeout(muteTimeout);
-  }, []);
+  //   return () => clearTimeout(muteTimeout);
+  // }, []);
 
   return (
-    <div className="mx-4 sm:mx-0">
-      <video ref={videoRef}  width="720" height="640" autoPlay controls playsInline>
-        <source src={video} type="video/mp4" />
-        Tu navegador no soporta la reproducción de videos.
-      </video>
+    <div className="youtube-div flex justify-center py-4">
+      <iframe ref={videoRef} width="560" height="315" src="https://www.youtube.com/embed/XmH2BZxp_Fg?si=91aUD2FBU2YgkUKz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
   );
 }

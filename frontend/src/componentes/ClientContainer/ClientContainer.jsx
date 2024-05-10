@@ -1,6 +1,7 @@
 import React from "react";
 import YoutubeVideo from "../YoutubeVideo/YoutubeVideo";
 import { motion } from "framer-motion";
+import "./ClientContainer.css"
 const ClientContainer = () => {
   const videoIds = [
     "E8qZ5mtJnpI",
@@ -32,15 +33,15 @@ const ClientContainer = () => {
 
   return (
     <div
-      className="max-w-[330px] md:max-w-[1600px] p-8 rounded-lg"
+      className="max-w-[330px] md:max-w-[1600px] p-8 rounded-lg client-container"
       style={{
-        backgroundImage: `url(${backgroundImageUrl})`,
-        backgroundSize: "cover", // Ajusta el tamaño de la imagen de fondo según tus necesidades
-        backgroundRepeat: "no-repeat",
+        // backgroundImage: `url(${backgroundImageUrl})`,
+        // backgroundSize: "cover", // Ajusta el tamaño de la imagen de fondo según tus necesidades
+        // backgroundRepeat: "no-repeat",
       }}
     >
       <motion.h1
-        className="mb-8 font-catamaran text-4xl text-white"
+        className="mb-8 font-catamaran text-4xl lg:text-5xl text-white"
         variants={cardVariants}
         initial="offscreen"
         whileInView="onscreen"

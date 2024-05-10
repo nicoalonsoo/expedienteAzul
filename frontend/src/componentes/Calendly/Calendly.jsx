@@ -10,13 +10,12 @@ const Calendly = () => {
     document.head.appendChild(script);
 
     return () => {
-      // Limpiar el script cuando el componente se desmonte
       document.head.removeChild(script);
     };
   }, []);
 
   return (
-    <div className="calendly-inline-widget" data-url="https://calendly.com/nicoalonso99-na/30min?hide_event_type_details=1&hide_gdpr_banner=1" style={{ minWidth: '320px', height: '700px' }}></div>
+    <div className="calendly-inline-widget" data-url="https://calendly.com/acasillas-xpazul/30min?month=2024-05" style={{ minWidth: '320px', height: '700px' }}></div>
   );
 };
 

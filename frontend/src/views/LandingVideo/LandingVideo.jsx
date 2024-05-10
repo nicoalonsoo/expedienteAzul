@@ -43,10 +43,10 @@ const LandingVideo = () => {
       // }}
     >
       <Header />
-      <div className="text-center max-w-[1200px] mx-auto">
+      <div className="text-center w-full lg:max-w-[1200px] mx-auto">
         <div className=" max-w-[400px] md:max-w-[970px] text-center mt-4 mx-auto">
           <motion.h1
-            className=" font-inter text-4xl md:text-5xl font-extrabold text-gray-800 leading-custom mt-4 mx-4 md:mx-0"
+            className="text-balance font-inter text-3xl md:text-5xl font-extrabold text-gray-800 leading-custom mt-4 mx-2 md:mx-0"
             variants={cardVariants}
             initial="offscreen"
             whileInView="onscreen"
@@ -55,12 +55,12 @@ const LandingVideo = () => {
             PASO 1: <span className=" text-custom-blue">MIRA EL VIDEO</span>
           </motion.h1>
         </div>
-        <div className="mx-auto max-w-[700px] mb-6 mt-4">
+        <div className="w-full  flex justify-center px-2">
           <DropboxVideo />
         </div>
-        <div className="max-w-[350px] md:max-w-[970px] text-center mt-4 mx-auto">
+        <div className="w-full md:max-w-[970px] text-center px-2 lg:px-0 mt-4 mx-auto">
           <motion.h1
-            className="font-open-sans text-3xl md:text-5xl font-extrabold mb-4"
+            className="text-balance  font-open-sans text-3xl md:text-5xl font-extrabold mb-4"
             variants={cardVariants}
             initial="offscreen"
             whileInView="onscreen"

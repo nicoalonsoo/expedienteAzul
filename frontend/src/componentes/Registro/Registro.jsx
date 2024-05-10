@@ -14,19 +14,19 @@ import { motion } from "framer-motion";
 const Registro = ({ actualizarEstado, countries }) => {
   const history = useHistory();
   const [registro, setRegistro] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    countryCode: null,
-    country: "",
+    Name: "",
+    Email: "",
+    Phone: "",
+    CountryCode: null,
+    Country: "",
   });
 
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({
-    name: "completar con su nombre",
-    email: "completar email",
-    phone: "colocar su numero",
-    countryCode: "colocar Country Code",
+    Name: "completar con su nombre",
+    Email: "completar email",
+    Phone: "colocar su numero",
+    CountryCode: "colocar Country Code",
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -49,27 +49,27 @@ const Registro = ({ actualizarEstado, countries }) => {
 
   const validate = (registro) => {
     let errors = {};
-    if (!registro.name) {
-      errors.name = "Llenar con su nombre";
+    if (!registro.Name) {
+      errors.Name = "Llenar con su nombre";
     }
-    if (!registro.email) {
-      errors.email = "Debes ingresar un email.";
+    if (!registro.Email) {
+      errors.Email = "Debes ingresar un Email.";
     }
-    if (registro.email) {
-      const emailRegex =
+    if (registro.Email) {
+      const EmailRegex =
         /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-      if (!emailRegex.test(registro.email)) {
-        errors.email = "El email ingresado no es válido";
+      if (!EmailRegex.test(registro.Email)) {
+        errors.Email = "El email ingresado no es válido";
       }
     }
-    if (!registro.phone) {
-      errors.phone = "Debe ingresar su numero de celular.";
+    if (!registro.Phone) {
+      errors.Phone = "Debe ingresar su numero de celular.";
     }
-    if (!registro.countryCode) {
-      errors.phone = "Debe ingresar el código de su pais.";
+    if (!registro.CountryCode) {
+      errors.Phone = "Debe ingresar el código de su pais.";
     }
-    if (!registro.countryCode && !registro.phone) {
-      errors.phone = "Debe ingresar su pais y su numero de celular.";
+    if (!registro.CountryCode && !registro.Phone) {
+      errors.Phone = "Debe ingresar su pais y su numero de celular.";
     }
     setErrors(errors);
   };
@@ -78,24 +78,60 @@ const Registro = ({ actualizarEstado, countries }) => {
     e.preventDefault();
     validate(registro);
     if (Object.keys(errors).length === 0) {
-      eventLead(registro.email, registro.name);
-      setIsLoading(true);
-      axios
-        .post("/users", registro)
-        .then((res) => {
-          // alert(`usuario enviado con éxito`);
-          setRegistro({
-            name: "",
-            email: "",
-            phone: "",
-          });
-          actualizarEstado(false);
-          history.push("/video");
-        })
-        .catch((err) => alert(err));
+      // eventLead(registro.email, registro.name);
+    
+    
+      Submit();
+      // axios
+      //   .post("/users", registro)
+      //   .then((res) => {
+      //     // alert(`usuario enviado con éxito`);
+      //     setRegistro({
+      //       name: "",
+      //       email: "",
+      //       phone: "",
+      //     });
+      //     actualizarEstado(false);
+      //     history.push("/video");
+      //   })
+      //   .catch((err) => alert(err));
     } else {
       setFormSubmitted(true);
     }
+  };
+
+  const Submit = () => {
+    const formDatab = new FormData();
+    for (const key in registro) {
+      formDatab.append(key, registro[key]);
+    }
+
+    fetch(
+      "https://script.google.com/macros/s/AKfycbzxJCjRVhOSqnKj89_1EMwqiLquM2oujNOy0fFZGdYsWJg6Bd8AyC53lOgv-rR5S-zP/exec",
+      {
+        method: "POST",
+        body: formDatab,
+        mode: "no-cors",
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      setIsLoading(true);
+      setRegistro({
+        Name: "",
+        Email: "",
+        Phone: "",
+        CountryCode: "",
+        Country: "",
+      });
+      actualizarEstado(false);
+      history.push("/video");
+    // actualizarEstado(true);
   };
 
   const handleClick = (click) => {
@@ -103,7 +139,7 @@ const Registro = ({ actualizarEstado, countries }) => {
   };
 
   const selectedCountry = countries.find(
-    (country) => country.code === registro.countryCode
+    (country) => country.code === registro.CountryCode
   );
 
   const placeholderHTML = `
@@ -156,9 +192,9 @@ const Registro = ({ actualizarEstado, countries }) => {
             </label> */}
             <input
               type="text"
-              id="name"
-              name="name"
-              value={registro.name}
+              id="Name"
+              name="Name"
+              value={registro.Name}
               onChange={handleChange}
               placeholder="Ingresa tu Nombre y Apellido"
               className="input-f h-[40px] w-full px-4 pl-10 mt-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
@@ -170,8 +206,8 @@ const Registro = ({ actualizarEstado, countries }) => {
                 backgroundRepeat: "no-repeat",
               }}
             />
-            {formSubmitted && errors.name && (
-              <span className="text-red-500">{errors.name}</span>
+            {formSubmitted && errors.Name && (
+              <span className="text-red-500">{errors.Name}</span>
             )}
           </div>
           <div className="mb-4">
@@ -200,7 +236,7 @@ const Registro = ({ actualizarEstado, countries }) => {
                 value={
                   selectedCountry
                     ? {
-                        value: [registro.countryCode, registro.country],
+                        value: [registro.CountryCode, registro.Country],
                         label: (
                           <div className="flex items-center cursor-pointer">
                             <img
@@ -212,15 +248,15 @@ const Registro = ({ actualizarEstado, countries }) => {
                           </div>
                         ),
                       }
-                    : registro.countryCode
+                    : registro.CountryCode
                 }
                 onChange={(selectedOption) => {
                   setRegistro({
                     ...registro,
-                    countryCode: selectedOption.value[0],
-                    country: selectedOption.value[1],
+                    CountryCode: selectedOption.value[0],
+                    Country: selectedOption.value[1],
                   });
-                  validate({ ...registro, countryCode: selectedOption.value });
+                  validate({ ...registro, CountryCode: selectedOption.value });
                 }}
                 className="div-f w-2/3 py-2 border-2 border-white rounded-lg focus:outline-none focus:ring-2"
                 styles={{
@@ -248,9 +284,9 @@ const Registro = ({ actualizarEstado, countries }) => {
 
               <input
                 type="text"
-                id="phone"
-                name="phone"
-                value={registro.phone}
+                id="Phone"
+                name="Phone"
+                value={registro.Phone}
                 onChange={handleChange}
                 className="input-f h-[40px] w-full px-4 pl-10 mt-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                 placeholder="Tu número de teléfono..."
@@ -263,8 +299,8 @@ const Registro = ({ actualizarEstado, countries }) => {
                 }}
               />
             </div>
-            {formSubmitted && errors.phone && (
-              <span className="text-red-500">{errors.phone}</span>
+            {formSubmitted && errors.Phone && (
+              <span className="text-red-500">{errors.Phone}</span>
             )}
           </div>
           <div className="mb-4">
@@ -276,10 +312,10 @@ const Registro = ({ actualizarEstado, countries }) => {
             </label> */}
 
             <input
-              type="email"
-              id="email"
-              name="email"
-              value={registro.email}
+              type="Email"
+              id="Email"
+              name="Email"
+              value={registro.Email}
               onChange={handleChange}
               placeholder="Ingresá tu Correo electrónico"
               className="input-f h-[40px] w-full px-4 pl-10 mt-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
@@ -291,8 +327,8 @@ const Registro = ({ actualizarEstado, countries }) => {
                 backgroundRepeat: "no-repeat",
               }}
             />
-            {formSubmitted && errors.email && (
-              <span className="text-red-500">{errors.email}</span>
+            {formSubmitted && errors.Email && (
+              <span className="text-red-500">{errors.Email}</span>
             )}
           </div>
           <div className="flex items-center justify-center mt-12">
