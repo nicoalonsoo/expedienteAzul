@@ -2,7 +2,7 @@ import axios from "axios";
 import './App.css';
 import { Route } from 'react-router-dom';
 import UserTable from './view/UserTable/UserTable'
-axios.defaults.baseURL = 'https://expedienteazul-production.up.railway.app';
+axios.defaults.baseURL = 'http://localhost:3001';
 // https://expedienteazul-production.up.railway.app
 // http://localhost:3001
 function App() {

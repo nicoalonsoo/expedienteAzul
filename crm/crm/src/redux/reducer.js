@@ -23,6 +23,7 @@ const reducer = (state = initialState, action) => {
         }
         return 0;
       }); 
+      console.log(sortedArr);
       return { ...state, users: sortedArr, count: count };
     case GET_COUNTRIES:
       const modifiedCountries = action.payload.map(country => {

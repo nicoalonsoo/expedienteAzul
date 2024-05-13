@@ -33,7 +33,7 @@ const ClientContainer = () => {
 
   return (
     <div
-      className="max-w-[330px] md:max-w-[1600px] p-8 rounded-lg client-container"
+      className="flex justify-center items-center flex-wrap w-full p-4 md:max-w-[1600px] rounded-lg client-container"
       style={{
         // backgroundImage: `url(${backgroundImageUrl})`,
         // backgroundSize: "cover", // Ajusta el tamaño de la imagen de fondo según tus necesidades
@@ -49,11 +49,11 @@ const ClientContainer = () => {
       >
         Testimoniales
       </motion.h1>
-      <div className="mr-0 md:mr-[155px] flex flex-wrap -mx-2 justify-center">
+      <div className=" flex flex-wrap  justify-center">
         {videoIds.map((videoId, index) => (
           <div
             key={index}
-            className="mb-12 justify-center sm:w-1/2 md:w-1/3 lg:w-1/2 p-2"
+            className="mb-12 justify-center  md:w-1/3 lg:w-1/2 p-2"
           >
             <YoutubeVideo videoId={videoId} />
           </div>

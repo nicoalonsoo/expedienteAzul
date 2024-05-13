@@ -25,7 +25,7 @@ const Benefits = ({ imageUrl, text }) => {
       viewport={{ once: true, amount: 0.8 }}
       >
         <img className="mx-auto mb-6" src={imageUrl} alt="Imagen" />
-        <p className='mx-auto font-catamaran text-2xl max-w-[220px] md:max-w-[300px]'>{text}</p>
+        <p className='mx-auto font-catamaran text-2xl px-4 md:max-w-[300px]'>{text}</p>
       </motion.div>
     );
 }
