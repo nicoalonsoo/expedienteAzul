@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import loading from "../../multimedia/load3.gif";
-import logo from "../../multimedia/log.png";
+import logo from "../../multimedia/logo.png";
 import country from "../../multimedia/country.svg";
 import email from "../../multimedia/email.svg";
 import person from "../../multimedia/person.svg";
