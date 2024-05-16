@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
 import { motion } from "framer-motion";
 const Benefits = ({ imageUrl, text }) => {
-
   const cardVariants = {
     offscreen: {
       y: 50,
@@ -17,17 +16,22 @@ const Benefits = ({ imageUrl, text }) => {
     },
   };
 
-    return (
-      <motion.div className="mx-auto text-center overflow-hidden"
+  return (
+    <motion.div
+      className="flex flex-col justify-center items-start text-center overflow-hidden"
       variants={cardVariants}
       initial="offscreen"
       whileInView="onscreen"
       viewport={{ once: true, amount: 0.8 }}
-      >
-        <img className="mx-auto mb-6" src={imageUrl} alt="Imagen" />
-        <p className='mx-auto font-catamaran text-2xl px-4 md:max-w-[300px]'>{text}</p>
-      </motion.div>
-    );
-}
+    >
+      <img className="mx-auto w-24 mb-6" src={imageUrl} alt="Imagen" />
+      
+      <p
+        className="mx-auto font-roboto text-xl md:max-w-[300px]"
+        dangerouslySetInnerHTML={{ __html: text }}
+      ></p>
+    </motion.div>
+  );
+};
 
-export default Benefits
+export default Benefits;

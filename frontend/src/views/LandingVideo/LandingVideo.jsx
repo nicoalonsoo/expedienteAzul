@@ -16,6 +16,7 @@ const LandingVideo = () => {
 
   const handleClick = () => {
     history.push("/viewcalendly");
+    window.fbq('track', 'Demostration');
     eventViewContent();
   };
 
@@ -46,13 +47,13 @@ const LandingVideo = () => {
       <div className="text-center w-full lg:max-w-[1200px] mx-auto">
         <div className=" max-w-[400px] md:max-w-[970px] text-center mt-4 mx-auto">
           <motion.h1
-            className="text-balance font-inter text-3xl md:text-5xl font-extrabold text-gray-800 leading-custom mt-4 mx-2 md:mx-0"
+            className="text-balance font-catamaran text-3xl md:text-5xl font-extrabold text-gray-800 leading-custom mt-4 mx-2 md:mx-0"
             variants={cardVariants}
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.8 }}
           >
-            PASO 1: <span className=" text-custom-blue">MIRA EL VIDEO</span>
+            PASO 1: <span className=" text-[#40b4e5]">MIRA EL VIDEO</span>
           </motion.h1>
         </div>
         <div className="w-full  flex justify-center px-2">
@@ -67,13 +68,13 @@ const LandingVideo = () => {
             viewport={{ once: true, amount: 0.1 }}
           >
             PASO 2:{" "}
-            <span className=" text-custom-blue">AGENDÁ UNA REUNION</span> CON
+            <span className=" text-[#40b4e5]">AGENDÁ UNA REUNION</span> CON
             NUESTRO EQUIPO
           </motion.h1>
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <motion.button
-            className="ov-btn-slide-left max-w-[700px] bg-gradient-to-r from-blue-400 to-blue-700 text-white text-2xl py-4 px-6 rounded-xl mb-2 mx-4 my-0 md:my-2"
+            className="ov-btn-slide-left max-w-[700px] bg-gradient-to-r from-[#40b4e5] to-[#09a3e4] text-white text-2xl py-4 px-6 rounded-xl mb-2 mx-4 my-0 md:my-2"
             variants={cardVariants}
             initial="offscreen"
             whileInView="onscreen"

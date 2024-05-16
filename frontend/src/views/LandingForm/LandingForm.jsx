@@ -111,17 +111,17 @@ const LandingForm = () => {
       <div className="text-center py-4 max-w-[1223px] mx-auto">
         <div className="">
           <motion.h1
-            className="text-balance uppercase font-inter text-2xl md:text-4xl font-extrabold text-gray-800 leading-custom mb-0 mt-4 mx-4 md:mx-0"
+            className="font-catamaran text-balance text-2xl md:text-4xl font-extrabold text-gray-800 leading-custom mb-0 mt-4 mx-4 md:mx-0"
             variants={cardVariants}
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.8 }}
           >
-            <span className=" text-custom-blue">Tecnología Innovadora</span>{" "}
-            transforma el sector financiero en Mexico:{" "}
-            <span className=" text-custom-blue">Aumenta </span> la colocación de
+            Descubre la <span className=" text-[#40b4e5]">Tecnología Innovadora</span>{" "}
+             que transforma el sector financiero en Mexico:&nbsp; {""}
+            <span className=" text-[#40b4e5]">Aumenta </span> la colocación de
             financiamiento{" "}
-            <span className=" text-custom-blue">reduciendo el riesgo</span> de
+            <span className=" text-[#40b4e5]">reduciendo el riesgo</span> de
             fraudes, multas y problemas a la hora de recuperar.
           </motion.h1>
         </div>
@@ -140,9 +140,14 @@ const LandingForm = () => {
             onClick={() => handleClick(true)}
           />
         </div>
+        <div>
+          <h1 className="font-catamaran text-2xl text-gray-800 text-center">
+            Escalá tu <span className=" text-[#40b4e5]">SOFIPI</span> o <span className=" text-[#40b4e5]">SOFOME</span>
+          </h1>
+        </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <motion.button
-            className="ov-btn-slide-left max-w-[700px] bg-gradient-to-r from-blue-400 to-blue-700 text-white text-2xl py-4 px-6 rounded-xl mb-2 mx-4 my-0 md:my-2"
+            className="ov-btn-slide-left max-w-[700px] bg-gradient-to-r from-[#40b4e5] to-[#09a3e4] text-white text-2xl py-4 px-6 rounded-xl mb-2 mx-4 my-0 md:my-2"
             variants={cardVariants}
             initial="offscreen"
             whileInView="onscreen"
@@ -180,7 +185,7 @@ const LandingForm = () => {
       <div className="mt-4">
         <div style={{ display: "flex", justifyContent: "center" }}>
           <motion.button
-            className="ov-btn-slide-left max-w-[700px] bg-gradient-to-r from-blue-400 to-blue-700 text-white text-2xl py-4 px-6 rounded-xl mb-2 mx-4 my-0 md:my-2"
+            className="ov-btn-slide-left max-w-[700px] bg-gradient-to-r from-[#40b4e5] to-[#09a3e4] text-white text-2xl py-4 px-6 rounded-xl mb-2 mx-4 my-0 md:my-2"
             variants={cardVariants}
             initial="offscreen"
             whileInView="onscreen"

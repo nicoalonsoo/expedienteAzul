@@ -6,7 +6,7 @@ export default function Header() {
     <Disclosure as="nav" className="bg-white py-2 border-b-2 border-gray-300">
       <div className="container mx-auto text-center py-4">
         <img
-          className="h-auto w-32 mx-auto" // Centrar horizontalmente
+          className="h-auto w-[200px] mx-auto" // Centrar horizontalmente
           src={logo}
           alt="Your Company"
         />

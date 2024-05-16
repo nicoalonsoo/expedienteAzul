@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import compu2 from "../../multimedia/compu2.png"
 const TextAndImage = () => {
   const cardVariants = {
     offscreen: {
@@ -18,16 +19,16 @@ const TextAndImage = () => {
 
   return (
     <div className="flex flex-col items-center justify-center sm:flex-row sm:justify-between mb-20 mt-20">
-      <div className="max-w-[400px] sm:max-w-[600px] p-4 mb-4 sm:mb-0 mr-0 sm:mr-12">
+      <div className="max-w-[400px] sm:max-w-[700px] p-4 mb-4 sm:mb-0 mr-0 sm:mr-12">
         <motion.h1
-          className="text-4xl font-catamaran font-bold mb-2 text-balance"
+          className="text-2xl font-catamaran text-[#0055b8] font-bold mb-2 text-balance"
           variants={cardVariants}
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.8 }}
         >
-         Xp azul no solo te ayuda en lo documental, sino que  
-          <span className="text-custom-blue"> automatiza </span>todo el proceso.
+          xpAzul es más que un gestor documental.
+          <span className="text-[#40b4e5]"> Automatizamos </span>y <span className="text-[#40b4e5]"> digitalizamos  </span>todo tu proceso de onboarding.
         </motion.h1>
         <motion.p
           className="text-md text-gray-800 mb-4"
@@ -36,7 +37,18 @@ const TextAndImage = () => {
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.8 }}
         >
-          La automatización total de expedientes aumenta considerablemente la eficiencia documental. Sin embargo, no se limita únicamente a lo documental, sino que abarca todo el proceso. Ayuda a validar y resguardar información para que se pueda tomar la decisión más precisa sobre si otorgar o no un financiamiento sin riesgos. Por eso, nos referimos a la automatización de la originación (captación de prospectos las 24 horas del día, los 7 días de la semana, y filtrado), integración (de todos los requisitos, formatos y documentos), validación (identidad, datos fiscales, etc., todo sin información alterada), resguardo (expedientes inalterables para futuras auditorías) y formalización (generación de contratos o formatos a partir de datos obtenidos de otros documentos, facilitación de firmas y datos que optimizan el proceso para una mejor decisión de aprobación de un financiamiento). 
+          La automatización y digitalización de tus expedientes financieros no
+          solo mejora la eficiencia documental, sino que transforma todo el
+          proceso desde la originación. Esto significa capturar prospectos
+          valiosos las 24/7 sin perder oportunidades. Integramos
+          rápidamente todos los requisitos, validamos y resguardamos la
+          información para decisiones precisas y otorgamiento de financiamiento
+          seguro, sin riesgo de fraudes ni multas. Nuestro sistema garantiza
+          auditorias eficientes con trazabilidad completa y datos inalterables,
+          sin interrumpir la operatividad. Además, agilizamos la formalización
+          de expedientes con velocidad y seguridad. ¿Listo para optimizar la
+          eficiencia y seguridad de tus expedientes financieros? <span className="font-bold">Contáctanos hoy
+          para una demostración gratuita.</span>
         </motion.p>
       </div>
       <div className="ml-0 sm:ml-20">
@@ -45,10 +57,9 @@ const TextAndImage = () => {
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.8 }}
-          src="https://expedienteazul.com/financiera/wp-content/uploads/2022/06/ExA-Vfuncionalidades.jpg"
+          src={compu2}
           alt="ImagenAutomatizacion"
-          className="w-[300px] h-[300px] max-w-full rounded-md"
-      
+          className=" h-[280px]  rounded-md"
         />
       </div>
     </div>
