@@ -142,7 +142,7 @@ const LandingForm = () => {
         </div>
         <div>
           <h1 className="font-catamaran text-2xl text-gray-800 text-center">
-            Escalá tu <span className=" text-[#40b4e5]">SOFIPI</span> o <span className=" text-[#40b4e5]">SOFOME</span>
+            Escalá tu <span className=" text-[#40b4e5]">SOFIPO</span> o <span className=" text-[#40b4e5]">SOFOME</span>
           </h1>
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
