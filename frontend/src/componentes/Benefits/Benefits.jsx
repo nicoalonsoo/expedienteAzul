@@ -18,7 +18,7 @@ const Benefits = ({ imageUrl, text }) => {
 
   return (
     <motion.div
-      className="flex flex-col justify-center items-start text-center overflow-hidden"
+      className=" justify-center items-start text-center overflow-hidden"
       variants={cardVariants}
       initial="offscreen"
       whileInView="onscreen"

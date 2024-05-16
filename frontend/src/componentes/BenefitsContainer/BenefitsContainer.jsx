@@ -34,12 +34,17 @@ const BenefitsContainer = () => {
         "https://expedienteazul.com/financiera/wp-content/uploads/2018/05/reducir-errores.png",
       text: `<span style="color: #40b4e5; font-weight: 600;">Audita   </span>  cuando quieras <span style="font-weight: 600;"> sin parar la operación.</span>`,
     },
+    // {
+    //   imageUrl:
+    //     "https://expedienteazul.com/financiera/wp-content/uploads/2018/05/reducir-errores.png",
+    //   text: `<span style="color: #40b4e5; font-weight: 600;">Audita   </span>  cuando quieras <span style="font-weight: 600;"> sin parar la operación.</span>`,
+    // },
   ];
 
   return (
-    <div className="flex flex-wrap  md:max-w-[1300px]">
+    <div className="flex flex-wrap justify-center  md:max-w-[1300px]">
       {datosComponenteB.map((datos, index) => (
-        <div key={index} className="w-full sm:w-1/2 md:w-1/3  mb-4">
+        <div key={index} className={`flex flex-wrap justify-center items-start sm:w-1/2 md:w-1/4 mb-4`}>
           <Benefits imageUrl={datos.imageUrl} text={datos.text} />
         </div>
       ))}
