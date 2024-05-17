@@ -11,7 +11,7 @@ const BenefitsContainer = () => {
     {
       imageUrl:
       b_safe,
-      text: `<span style="color: #40b4e5; font-weight: 600;">Datos de tus clientes seguros y encriptados.</span> operamos bajo <span style="font-weight: 600;">normativas: </span>HIPAA, NIST, ISO-27001`,
+      text: `<span style="color: #40b4e5; font-weight: 600;">Datos de tus clientes seguros y encriptados.</span> Operamos bajo <span style="font-weight: 600;">normativas: </span>HIPAA, NIST, ISO-27001`,
     },
     {
       imageUrl:
@@ -28,7 +28,7 @@ const BenefitsContainer = () => {
     {
       imageUrl:
       b_clients,
-      text: `<span style="color: #40b4e5; font-weight: 600;">Cierra 40% más negocios </span> Fortalece tu competitividad.`,
+      text: `<span style="color: #40b4e5; font-weight: 600;">Cierra 40% más negocios. </span> Fortalece tu competitividad.`,
     },
     {
       imageUrl:
