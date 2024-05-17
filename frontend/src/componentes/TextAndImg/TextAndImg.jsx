@@ -18,7 +18,7 @@ const TextAndImage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center sm:flex-row sm:justify-between mb-20 mt-20">
+    <div className="flex flex-col items-center justify-center sm:flex-row sm:justify-between mb-4 mt-4 lg:mb-20 lg:mt-20">
       <div className="max-w-[400px] sm:max-w-[700px] p-4 mb-4 sm:mb-0 mr-0 sm:mr-12">
         <motion.h1
           className="text-2xl font-catamaran text-[#0055b8] font-bold mb-2 text-balance"

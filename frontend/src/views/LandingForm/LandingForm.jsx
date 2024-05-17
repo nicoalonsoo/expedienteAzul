@@ -108,7 +108,7 @@ const LandingForm = () => {
       }}
     >
       <Header />
-      <div className="text-center py-4 max-w-[1323px] mx-auto">
+      <div className="text-center max-w-[1323px] mx-auto">
         <div className="">
           <motion.h1
             className="font-catamaran italic text-balance text-2xl md:text-4xl font-extrabold text-gray-800 leading-custom mb-0 mt-4 mx-1 md:mx-0"
@@ -133,7 +133,7 @@ const LandingForm = () => {
           Copiando y pegando nuestra estrategia que nos viene generando en
           promedio un 29% mensual en los últimos dos años.
         </h3> */}
-        <div className="mx-auto max-w-[700px] p-4 sm:p-4 mb-0 mt-0 sm:mb-2 sm:mt-2">
+        <div className="mx-auto max-w-[700px] p-4 sm:p-4 py-4 mb-0 mt-0 sm:mb-2 sm:mt-2">
           <img
             src={YoutubeFrame}
             alt="gif"
@@ -144,7 +144,7 @@ const LandingForm = () => {
           />
         </div>
         <div>
-          <h1 className="font-catamaran text-2xl text-gray-800 text-center">
+          <h1 className="font-catamaran text-2xl text-gray-800 text-center pb-1">
             Escala tu <span className=" text-[#40b4e5]">SOFIPO</span> o{" "}
             <span className=" text-[#40b4e5]">SOFOME</span>
           </h1>
