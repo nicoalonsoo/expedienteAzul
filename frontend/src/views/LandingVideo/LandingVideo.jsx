@@ -16,7 +16,8 @@ const LandingVideo = () => {
 
   const handleClick = () => {
     history.push("/viewcalendly");
-    window.fbq('track', 'Demostration');
+
+    window.fbq("track", "Lead");
     eventViewContent();
   };
 
@@ -67,9 +68,8 @@ const LandingVideo = () => {
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.1 }}
           >
-            PASO 2:{" "}
-            <span className=" text-[#40b4e5]">AGENDÁ UNA REUNION</span> CON
-            NUESTRO EQUIPO
+            PASO 2: <span className=" text-[#40b4e5]">AGENDÁ UNA REUNION</span>{" "}
+            CON NUESTRO EQUIPO
           </motion.h1>
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>

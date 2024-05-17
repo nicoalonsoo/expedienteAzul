@@ -79,8 +79,8 @@ const Registro = ({ actualizarEstado, countries }) => {
     validate(registro);
     if (Object.keys(errors).length === 0) {
       // eventLead(registro.email, registro.name);
-      window.fbq('track', 'FormSubmitted');
-    
+      window.fbq("track", "CompleteRegistration");
+
       Submit();
       // axios
       //   .post("/users", registro)
@@ -115,22 +115,20 @@ const Registro = ({ actualizarEstado, countries }) => {
       }
     )
       .then((res) => res.json())
-      .then((data) => {
-
-      })
+      .then((data) => {})
       .catch((error) => {
         console.log(error);
       });
-      setIsLoading(true);
-      setRegistro({
-        Name: "",
-        Email: "",
-        Phone: "",
-        CountryCode: "",
-        Country: "",
-      });
-      actualizarEstado(false);
-      history.push("/video");
+    setIsLoading(true);
+    setRegistro({
+      Name: "",
+      Email: "",
+      Phone: "",
+      CountryCode: "",
+      Country: "",
+    });
+    actualizarEstado(false);
+    history.push("/video");
     // actualizarEstado(true);
   };
 
@@ -161,11 +159,12 @@ const Registro = ({ actualizarEstado, countries }) => {
     },
   };
   return (
-    <motion.div className="max-w-[1100px] flex items-center justify-center"
-    variants={cardVariants}
-    initial="offscreen"
-    whileInView="onscreen"
-    viewport={{ once: true, amount: 0.8 }}
+    <motion.div
+      className="max-w-[1100px] flex items-center justify-center"
+      variants={cardVariants}
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.8 }}
     >
       <div className="max-w-[700px] p-4 bg-white rounded-lg shadow-lg overflow-auto max-h-[700px] relative">
         <button
@@ -267,7 +266,7 @@ const Registro = ({ actualizarEstado, countries }) => {
                         color: "lightgray", // Cambiar el color del placeholder a gris claro
                       },
                     };
-              
+
                     if (!selectedCountry) {
                       // Agregar estilo de fondo de imagen si no hay país seleccionado
                       controlStyles.backgroundImage = `url(${country})`; // Reemplaza con la ruta de tu imagen de marcador de posición
@@ -276,7 +275,7 @@ const Registro = ({ actualizarEstado, countries }) => {
                       controlStyles.backgroundRepeat = "no-repeat";
                       controlStyles.paddingLeft = "40px"; // Ajusta el espacio para la imagen
                     }
-              
+
                     return controlStyles;
                   },
                 }}
