@@ -12,7 +12,7 @@ import ClientContainer from "../../componentes/ClientContainer/ClientContainer";
 import BenefitsContainer from "../../componentes/BenefitsContainer/BenefitsContainer";
 import TextAndImage from "../../componentes/TextAndImg/TextAndImg";
 import { motion } from "framer-motion";
-import YoutubeFrame from "../../multimedia/youtubeFrame.jpeg"
+import YoutubeFrame from "../../multimedia/youtubeFrame.jpeg";
 const LandingForm = () => {
   const countries = useSelector((state) => state.countries);
   const dispatch = useDispatch();
@@ -108,24 +108,26 @@ const LandingForm = () => {
       }}
     >
       <Header />
-      <div className="text-center py-4 max-w-[1223px] mx-auto">
+      <div className="text-center py-4 max-w-[1323px] mx-auto">
         <div className="">
           <motion.h1
-            className="font-catamaran text-balance text-2xl md:text-4xl font-extrabold text-gray-800 leading-custom mb-0 mt-4 mx-4 md:mx-0"
+            className="font-catamaran text-balance text-2xl md:text-4xl font-extrabold text-gray-800 leading-custom mb-0 mt-4 mx-1 md:mx-0"
             variants={cardVariants}
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.8 }}
           >
-            Descubre la <span className=" text-[#40b4e5]">Tecnología Innovadora</span>{" "}
-             que transforma el sector financiero en Mexico:&nbsp; {""}
+            Descubre la{" "}
+            <span className=" text-[#40b4e5]">Tecnología Innovadora</span> que
+            transforma el sector financiero en Mexico:&nbsp; {""}
+            <br /> <br />
             <span className=" text-[#40b4e5]">Aumenta </span> la colocación de
             financiamiento{" "}
             <span className=" text-[#40b4e5]">reduciendo el riesgo</span> de
             fraudes, multas y problemas a la hora de recuperar.
           </motion.h1>
         </div>
-       
+
         {/* <h3 className="text-lg md:text-2xl mb-2 mx-6 my-2 md:my-0 md:mx-0">
           Copiando y pegando nuestra estrategia que nos viene generando en
           promedio un 29% mensual en los últimos dos años.
@@ -142,7 +144,8 @@ const LandingForm = () => {
         </div>
         <div>
           <h1 className="font-catamaran text-2xl text-gray-800 text-center">
-            Escalá tu <span className=" text-[#40b4e5]">SOFIPO</span> o <span className=" text-[#40b4e5]">SOFOME</span>
+            Escala tu <span className=" text-[#40b4e5]">SOFIPO</span> o{" "}
+            <span className=" text-[#40b4e5]">SOFOME</span>
           </h1>
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
