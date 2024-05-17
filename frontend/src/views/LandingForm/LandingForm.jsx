@@ -120,7 +120,7 @@ const LandingForm = () => {
             <span className="text-xl md:text-3xl font-normal">
             Descubre la{" "}
             <span className=" ">Tecnología Innovadora</span> que
-            transforma el sector financiero en Mexico:</span>&nbsp; {""}
+            transforma el sector financiero en México:</span>&nbsp; {""}
             <br /> <br />
            <span className="not-italic"> <span className=" text-[#40b4e5]">Aumenta </span> la colocación de
             financiamiento{" "}
