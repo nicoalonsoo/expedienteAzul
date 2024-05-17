@@ -111,20 +111,21 @@ const LandingForm = () => {
       <div className="text-center py-4 max-w-[1323px] mx-auto">
         <div className="">
           <motion.h1
-            className="font-catamaran text-balance text-2xl md:text-4xl font-extrabold text-gray-800 leading-custom mb-0 mt-4 mx-1 md:mx-0"
+            className="font-catamaran italic text-balance text-2xl md:text-4xl font-extrabold text-gray-800 leading-custom mb-0 mt-4 mx-1 md:mx-0"
             variants={cardVariants}
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.8 }}
           >
+            <span className="text-xl md:text-3xl font-normal">
             Descubre la{" "}
-            <span className=" text-[#40b4e5]">Tecnología Innovadora</span> que
-            transforma el sector financiero en Mexico:&nbsp; {""}
+            <span className=" ">Tecnología Innovadora</span> que
+            transforma el sector financiero en Mexico:</span>&nbsp; {""}
             <br /> <br />
-            <span className=" text-[#40b4e5]">Aumenta </span> la colocación de
+           <span className="not-italic"> <span className=" text-[#40b4e5]">Aumenta </span> la colocación de
             financiamiento{" "}
             <span className=" text-[#40b4e5]">reduciendo el riesgo</span> de
-            fraudes, multas y problemas a la hora de recuperar.
+            fraudes, multas y problemas a la hora de recuperar.</span>
           </motion.h1>
         </div>
 
