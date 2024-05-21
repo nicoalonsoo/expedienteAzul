@@ -13,6 +13,7 @@ import BenefitsContainer from "../../componentes/BenefitsContainer/BenefitsConta
 import TextAndImage from "../../componentes/TextAndImg/TextAndImg";
 import { motion } from "framer-motion";
 import YoutubeFrame from "../../multimedia/youtubeFrame.jpeg";
+
 const LandingForm = () => {
   const countries = useSelector((state) => state.countries);
   const dispatch = useDispatch();
@@ -149,6 +150,7 @@ const LandingForm = () => {
             <span className=" text-[#40b4e5]">SOFOME</span>
           </h1>
         </div>
+        
         <div style={{ display: "flex", justifyContent: "center" }}>
           <motion.button
             className="ov-btn-slide-left max-w-[700px] bg-gradient-to-r from-[#40b4e5] to-[#09a3e4] text-white text-2xl py-4 px-6 rounded-xl mb-2 mx-4 my-0 md:my-2"

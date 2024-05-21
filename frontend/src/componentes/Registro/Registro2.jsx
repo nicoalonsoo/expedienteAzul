@@ -11,7 +11,7 @@ import { useHistory } from "react-router-dom";
 import Select from "react-select";
 import "./Registro.css";
 import { motion } from "framer-motion";
-import MailchimpForm from "../../componentes/Mailchimp";
+import MailchimpForm from "../Mailchimp";
 const Registro = ({ actualizarEstado, countries }) => {
   const formRef = useRef(null);
   const history = useHistory();
@@ -353,7 +353,14 @@ const Registro = ({ actualizarEstado, countries }) => {
           &copy; 2023 Expediente Azul
         </p>
       </div>
-
+      <div>
+        <MailchimpForm
+          email="lololol@gmail.com"
+          firstName="John"
+          lastName="Does"
+          ref={formRef}
+        />
+      </div>
     </motion.div>
   );
 };
