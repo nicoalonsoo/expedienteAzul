@@ -4,6 +4,7 @@ import gif from "../../multimedia/gif.gif";
 import Header from "../../componentes/Header/Header";
 import Footer from "../../componentes/Footer/Footer";
 import Registro from "../../componentes/Registro/Registro";
+import Registro2 from "../../componentes/Registro/Registro2";
 import fondo from "../../multimedia/fondo.jpg";
 import click from "../../multimedia/click.svg";
 import { useSelector, useDispatch } from "react-redux";
@@ -235,7 +236,7 @@ const LandingForm = () => {
           ></div>
           <div className="fixed inset-0 flex items-center justify-center z-50">
             <div className="bg-white p-4 rounded-lg shadow-lg">
-              <Registro
+              <Registro2
                 actualizarEstado={actualizarEstadoPadre}
                 countries={filterCountries}
               />
