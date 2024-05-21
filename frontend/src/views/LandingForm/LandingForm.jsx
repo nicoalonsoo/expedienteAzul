@@ -14,11 +14,13 @@ import BenefitsContainer from "../../componentes/BenefitsContainer/BenefitsConta
 import TextAndImage from "../../componentes/TextAndImg/TextAndImg";
 import { motion } from "framer-motion";
 import YoutubeFrame from "../../multimedia/youtubeFrame.jpeg";
+import RegistroDisplayed from "../../componentes/Registro/Registro3";
 
 const LandingForm = () => {
   const countries = useSelector((state) => state.countries);
   const dispatch = useDispatch();
   const [showForm, setShowform] = useState(false);
+
   useEffect(() => {
     dispatch(getCountries());
     const elements = document.querySelectorAll(".appear");
@@ -185,6 +187,10 @@ const LandingForm = () => {
         <div className="flex justify-center text-center">
           <TextAndImage />
         </div>
+        <div className="flex justify-center text-center py-4">
+          <RegistroDisplayed  actualizarEstado={actualizarEstadoPadre}
+                countries={filterCountries}  />
+        </div>
       </div>
       <div className="mx-auto flex items-center justify-center">
         <ClientContainer />
@@ -218,16 +224,6 @@ const LandingForm = () => {
           </motion.button>
         </div>
       </div>
-      {/* <div className="text-center mx-auto max-w-[330px] md:max-w-[1150px] border-2 mt-20 mb-32 border-red-500 ">
-        <h3 className="font-open-sans text-sm md:text-lg font-bold text-red-500 mb-4 mx-2 my-2 md:my-0">
-          *Si no tienes mínimo $100 dólares para depositar en tu cuenta de
-          trading no te registres porque esto no va funcionar para ti.
-        </h3>
-        <h3 className="font-open-sans text-sm md:text-lg font-bold text-red-500 mb-4 mx-2 my-2 md:my-0">
-          *No somos una empresa multinivel, ni un fondo de inversión. Somos una
-          academia de trading partner oficial del broker Libertex.
-        </h3>
-      </div> */}
       {showForm && (
         <>
           <div

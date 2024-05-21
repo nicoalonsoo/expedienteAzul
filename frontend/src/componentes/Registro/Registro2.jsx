@@ -13,6 +13,7 @@ import Select from "react-select";
 import "./Registro.css";
 import { motion } from "framer-motion";
 import MailchimpForm from "../Mailchimp";
+
 const Registro = ({ actualizarEstado, countries }) => {
   const formRef = useRef(null);
   const history = useHistory();
@@ -166,10 +167,6 @@ const Registro = ({ actualizarEstado, countries }) => {
     (country) => country.code === registro.CountryCode
   );
 
-  const placeholderHTML = `
-    <img src="${phone}" alt="Phone Icon" style="width: 35px; height: 35px; vertical-align: middle;" />
-    Tu número de teléfono...
-  `;
   const cardVariants = {
     offscreen: {
       y: -150,
@@ -415,7 +412,7 @@ const Registro = ({ actualizarEstado, countries }) => {
         </h3> */}
           <div className="text-center"></div>
           <p className="text-xs text-gray-600 text-center mt-8">
-            &copy; 2023 Expediente Azul
+            &copy; 2024 XpAzul
           </p>
         </div>
    
