@@ -1,87 +1,425 @@
-import React from 'react';
+import React, { useState, useRef } from "react";
+import axios from "axios";
+import loading from "../../multimedia/load3.gif";
+import logo from "../../multimedia/logo.png";
+import country from "../../multimedia/country.svg";
+import email from "../../multimedia/email.svg";
+import person from "../../multimedia/person.svg";
+import phone from "../../multimedia/phone.svg";
+import company from "../../multimedia/company.svg"
+import { eventLead } from "../../utils/pixelEvents/PixelEvents";
+import { useHistory } from "react-router-dom";
+import Select from "react-select";
+import "./Registro.css";
+import { motion } from "framer-motion";
+import MailchimpForm from "../Mailchimp";
 
-const MailchimpForm = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const Registro = ({ actualizarEstado, countries }) => {
+  const formRef = useRef(null);
+  const history = useHistory();
+  const [registro, setRegistro] = useState({
+    FNAME: "",
+    EMAIL: "",
+    PHONE: "",
+    MMERGE3: "",
+    CountryCode: null,
+    Country: "",
+  });
 
-    // Simula el envío del formulario
-    const form = e.target.closest('form');
-    const formData = new FormData(form);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState({
+    FNAME: "completar con su nombre",
+    EMAIL: "completar email",
+    PHONE: "colocar su numero",
+    MMERGE3: "Colocar su empresa",
+    CountryCode: "colocar Country Code",
+  });
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
-    fetch(form.action, {
-      method: form.method,
-      body: formData,
-      mode: 'no-cors',
-    })
-      .then(() => {
-        // Mostrar mensaje de éxito (puedes ajustar esto según tus necesidades)
-        const successResponse = document.getElementById('mce-success-response');
-        successResponse.style.display = 'block';
-        successResponse.textContent = 'Subscription successful! Thank you.';
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setRegistro((prevRegistro) => ({
+      ...prevRegistro,
+      [name]: value,
+    }));
+    validate({ ...registro, [name]: value });
+  };
+  // const handleCountryChange = (e) => {
+  //   const code = e.target.value;
+  //   setRegistro({
+  //     ...registro,
+  //     countryCode: code,
+  //   });
+  //   validate({ ...registro, countryCode: code });
+  // };
 
-        // Redireccionar después de 5 segundos
-        setTimeout(() => {
-          window.location.href = 'https://your-redirect-url.com'; // Cambia esto por la URL a la que quieres redirigir
-        }, 5000); // 5000 ms = 5 segundos
-      })
-      .catch(() => {
-        // Manejo de error (puedes ajustar esto según tus necesidades)
-        const errorResponse = document.getElementById('mce-error-response');
-        errorResponse.style.display = 'block';
-        errorResponse.textContent = 'Subscription failed. Please try again.';
-      });
+  const validate = (registro) => {
+    let errors = {};
+    if (!registro.FNAME) {
+      errors.FNAME = "Llenar con su nombre";
+    }
+    if (!registro.MMERGE3) {
+      errors.MMERGE3 = "Debes ingresar el nombre de su empresa.";
+    }
+    if (!registro.EMAIL) {
+      errors.EMAIL = "Debes ingresar un Email.";
+    }
+    if (registro.EMAIL) {
+      const EmailRegex =
+        /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+      if (!EmailRegex.test(registro.EMAIL)) {
+        errors.EMAIL = "El email ingresado no es válido";
+      }
+    }
+    if (!registro.PHONE) {
+      errors.PHONE = "Debe ingresar su numero de celular.";
+    }
+    if (!registro.CountryCode) {
+      errors.Phone = "Debe ingresar el código de su pais.";
+    }
+    if (!registro.CountryCode && !registro.Phone) {
+      errors.Phone = "Debe ingresar su pais y su numero de celular.";
+    }
+    setErrors(errors);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    validate(registro);
+    if (Object.keys(errors).length === 0) {
+      // eventLead(registro.email, registro.name);
+      window.fbq("track", "CompleteRegistration");
+      if (formRef.current) {
+        formRef.current.submit();
+      }
+      Submit(e);
+    } else {
+      setFormSubmitted(true);
+    }
+  };
+
+  const Submit = (e) => {
+    const formDatab = new FormData();
+    for (const key in registro) {
+      formDatab.append(key, registro[key]);
+    }
+
+    fetch(
+      "https://script.google.com/macros/s/AKfycbwtT4CFuW6ALlexD9PoyEaaXEIRu8DxD8chARER5GsMoVFD5GLcIEonjsUQokrjtriY/exec",
+      {
+        method: "POST",
+        body: formDatab,
+        mode: "no-cors",
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {})
+      .catch((error) => {
+        console.log(error);
+      });
+
+      const form = e.target.closest('form');
+      const formData = new FormData(form);
+  
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+        mode: 'no-cors',
+      })
+        .then(() => {
+          // Mostrar mensaje de éxito (puedes ajustar esto según tus necesidades)
+          // const successResponse = document.getElementById('mce-success-response');
+          // successResponse.style.display = 'block';
+          // successResponse.textContent = 'Subscription successful! Thank you.';
+  
+          
+          // setTimeout(() => {
+          //   window.location.href = 'https://your-redirect-url.com'; 
+          // }, 5000);
+        })
+        .catch(() => {
+          // Manejo de error (puedes ajustar esto según tus necesidades)
+          const errorResponse = document.getElementById('mce-error-response');
+          errorResponse.style.display = 'block';
+          errorResponse.textContent = 'Subscription failed. Please try again.';
+        });
+
+
+    setIsLoading(true);
+    setRegistro({
+      Name: "",
+      Email: "",
+      Phone: "",
+      // CountryCode: "",
+      Country: "",
+    });
+    actualizarEstado(false);
+    history.push("/video");
+    // actualizarEstado(true);
+  };
+  
+
+  const handleClick = (click) => {
+    actualizarEstado(click);
+  };
+
+  const selectedCountry = countries.find(
+    (country) => country.code === registro.CountryCode
+  );
+
+  const cardVariants = {
+    offscreen: {
+      y: -150,
+      opacity: 0,
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        duration: 0.5,
+      },
+    },
+  };
   return (
-    <div id="mc_embed_signup">
-      <form
-        action="https://ifbeauty.us17.list-manage.com/subscribe/post?u=b2596fa7110a14cbec54e7220&amp;id=a3aaa3572b&amp;f_id=00aaf3e2f0"
-        method="post"
-        id="mc-embedded-subscribe-form"
-        name="mc-embedded-subscribe-form"
-        className="validate"
-        target="_self"
-        noValidate
-      >
-        <div id="mc_embed_signup_scroll">
-          <h2>Subscribe</h2>
-          <div className="indicates-required">
-            <span className="asterisk">*</span> indicates required
+    <motion.div
+      className="max-w-[1100px] flex items-center justify-center"
+      variants={cardVariants}
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.8 }}
+    >
+      
+        <div className="max-w-[700px] p-4 bg-white rounded-lg shadow-lg overflow-auto max-h-[700px] relative">
+          <button
+            className="bg-gray-500 hover:bg-gray-700 transition duration-300 ease-in-out text-white font-semibold text-sm py-1 px-2 rounded absolute top-2 right-0 mt-2 mr-2"
+            onClick={() => handleClick(false)}
+            // style={{ marginLeft: "250px" }}
+          >
+            X
+          </button>
+          <div className="flex justify-center mb-2">
+            <img src={logo} alt="Logo" className="w-30 h-20 p-0" />
           </div>
-          <div className="mc-field-group">
-            <label htmlFor="mce-EMAIL">Email Address <span className="asterisk">*</span></label>
-            <input type="email" name="EMAIL" className="required email" id="mce-EMAIL" required />
-          </div>
-          <div className="mc-field-group">
-            <label htmlFor="mce-FNAME">First Name </label>
-            <input type="text" name="FNAME" className="text" id="mce-FNAME" />
-          </div>
-          <div className="mc-field-group">
-            <label htmlFor="mce-PHONE">Phone Number </label>
-            <input type="text" name="PHONE" className="REQ_CSS" id="mce-PHONE" />
-          </div>
-          <div id="mce-responses" className="clear foot">
-            <div className="response" id="mce-error-response" style={{ display: 'none' }}></div>
-            <div className="response" id="mce-success-response" style={{ display: 'none' }}></div>
-          </div>
-          <div aria-hidden="true" style={{ position: 'absolute', left: '-5000px' }}>
-            <input type="text" name="b_b2596fa7110a14cbec54e7220_a3aaa3572b" tabIndex="-1" value="" />
-          </div>
-          <div className="optionalParent">
-            <div className="clear foot">
-              <button
-                type="button"
-                onClick={handleSubmit}
-                className="button"
-              >
-                Subscribe
-              </button>
+          <h1 className="font-catamaran text-lg md:text-2xl font-semibold text-center text-gray-900 mt-4 mb-12">
+            INGRESA TUS DATOS PARA RECIBIR ACCESO
+          </h1>
+
+          <form className="max-w-[400px] sm:max-w-[700px] mx-auto"
+           action="https://xpazul.us22.list-manage.com/subscribe/post?u=5bfe56f5b60b5aed537cf0588&amp;id=1e30ac2b95&amp;f_id=008dc9e1f0"
+           method="post"
+           id="mc-embedded-subscribe-form"
+           name="mc-embedded-subscribe-form"
+      
+           target="_self"
+           noValidate
+          
+          >
+            <div className="mb-4">
+              {/* <label
+              htmlFor="name"
+              className="block mb-1 sm:mb-2 text-sm text-gray-600"
+            >
+              Ingresá tu Primer Nombre y Apellido
+            </label> */}
+              <input
+                type="text"
+                id="FNAME"
+                name="FNAME"
+                value={registro.FNAME}
+                onChange={handleChange}
+                placeholder="Ingresa tu Nombre y Apellido"
+                className="input-f h-[40px] w-full px-4 pl-10 mt-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                required
+                style={{
+                  backgroundImage: `url(${person})`,
+                  backgroundSize: "25px 25px",
+                  backgroundPosition: "5px center",
+                  backgroundRepeat: "no-repeat",
+                }}
+              />
+              {formSubmitted && errors.FNAME && (
+                <span className="text-red-500">{errors.FNAME}</span>
+              )}
             </div>
-          </div>
+            <div className="mb-4">
+              {/* <label
+              htmlFor="phone"
+              className="block mb-1 sm:mb-2 text-sm text-gray-600"
+            >
+              Ingresá tu Numero de telefono
+            </label> */}
+              <div className="flex max-h-[54px] ">
+                <Select
+                  options={countries.map((country) => ({
+                    value: [country.code, country.name],
+                    label: (
+                      <div className="cursor-pointer flex items-center">
+                        <img
+                          src={country.flag}
+                          alt={country.name}
+                          className="w-6 h-4"
+                        />
+                        <span>{country.name}</span>
+                      </div>
+                    ),
+                  }))}
+                  placeholder={null}
+                  value={
+                    selectedCountry
+                      ? {
+                          value: [registro.CountryCode, registro.Country],
+                          label: (
+                            <div className="flex items-center cursor-pointer">
+                              <img
+                                src={selectedCountry.flag}
+                                alt={selectedCountry.name}
+                                className="w-6 h-4"
+                              />
+                              <span>{`${selectedCountry.name}`}</span>
+                            </div>
+                          ),
+                        }
+                      : registro.CountryCode
+                  }
+                  onChange={(selectedOption) => {
+                    setRegistro({
+                      ...registro,
+                      CountryCode: selectedOption.value[0],
+                      Country: selectedOption.value[1],
+                    });
+                    validate({
+                      ...registro,
+                      CountryCode: selectedOption.value,
+                    });
+                  }}
+                  className="div-f w-2/3 py-2 border-2 border-white rounded-lg focus:outline-none focus:ring-2"
+                  styles={{
+                    control: (provided) => {
+                      const controlStyles = {
+                        ...provided,
+                        "&::placeholder": {
+                          color: "lightgray", 
+                        },
+                      };
+
+                      if (!selectedCountry) {
+                        // Agregar estilo de fondo de imagen si no hay país seleccionado
+                        controlStyles.backgroundImage = `url(${country})`; // Reemplaza con la ruta de tu imagen de marcador de posición
+                        controlStyles.backgroundSize = "25px 25px";
+                        controlStyles.backgroundPosition = "5px center";
+                        controlStyles.backgroundRepeat = "no-repeat";
+                        controlStyles.paddingLeft = "40px"; // Ajusta el espacio para la imagen
+                      }
+
+                      return controlStyles;
+                    },
+                  }}
+                />
+
+                <input
+                  type="text"
+                  id="PHONE"
+                  name="PHONE"
+                  value={registro.PHONE}
+                  onChange={handleChange}
+                  className="input-f h-[40px] w-full px-4 pl-10 mt-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                  placeholder="Tu número de teléfono..."
+                  required
+                  style={{
+                    backgroundImage: `url(${phone})`,
+                    backgroundSize: "25px 25px",
+                    backgroundPosition: "5px center",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                />
+              </div>
+              {formSubmitted && errors.PHONE && (
+                <span className="text-red-500">{errors.PHONE}</span>
+              )}
+            </div>
+
+            <div className="mb-4">
+              <input
+                type="Email"
+                id="EMAIL"
+                name="EMAIL"
+                value={registro.EMAIL}
+                onChange={handleChange}
+                placeholder="Ingresá tu Correo electrónico"
+                className="input-f h-[40px] w-full px-4 pl-10 mt-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                required
+                style={{
+                  backgroundImage: `url(${email})`,
+                  backgroundSize: "25px 25px",
+                  backgroundPosition: "5px center",
+                  backgroundRepeat: "no-repeat",
+                }}
+              />
+              {formSubmitted && errors.EMAIL && (
+                <span className="text-red-500">{errors.EMAIL}</span>
+              )}
+            </div>
+
+            <div className="mb-4">
+            
+              <input
+                type="text"
+                id="MMERGE3"
+                name="MMERGE3"
+                value={registro.MMERGE3}
+                onChange={handleChange}
+                placeholder="Ingrese el nombre de su empresa"
+                className="input-f h-[40px] w-full px-4 pl-10 mt-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                required
+                style={{
+                  backgroundImage: `url(${company})`,
+                  backgroundSize: "25px 25px",
+                  backgroundPosition: "5px center",
+                  backgroundRepeat: "no-repeat",
+                }}
+              />
+              {formSubmitted && errors.MMERGE3 && (
+                <span className="text-red-500">{errors.MMERGE3}</span>
+              )}
+            </div>
+
+            <div className="flex items-center justify-center mt-12">
+              {isLoading ? (
+                <img
+                  src={loading}
+                  alt="loading"
+                  className="max-w-[76px] max-h-[76px]"
+                />
+              ) : (
+                <button
+                  type="submit"
+                  onClick={handleSubmit}
+                  className="button h-[54px] w-2/3 sm:w-48 bg-gradient-to-r from-blue-400 to-blue-600 text-white py-2 rounded-xl mx-auto block text-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mb-2 hover:opacity-80"
+                >
+                  Ingresar mis datos
+                </button>
+              )}
+            </div>
+          </form>
+          {/* <h3
+          className="font-open-sans text-sm md:text-lg font-bold text-red-500 mb-2 mt-0 mx-4 md:my-0 text-left"
+          style={{ marginBottom: "1rem" }}
+        >
+          *Utilizaremos estos datos para ponernos en contacto y regalarte
+          material de entrenamiento extra en base tus necesidades específicas de
+          trading.
+        </h3> */}
+          <div className="text-center"></div>
+          <p className="text-xs text-gray-600 text-center mt-8">
+            &copy; 2024 XpAzul
+          </p>
         </div>
-      </form>
-    </div>
+   
+    </motion.div>
   );
 };
 
-export default MailchimpForm;
+export default Registro;
+
+// className="w-32 bg-gradient-to-r from-cyan-400 to-cyan-600 text-white py-2 rounded-lg mx-auto block focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mb-2"

@@ -22,8 +22,6 @@ const Registro = ({ actualizarEstado, countries }) => {
     EMAIL: "",
     PHONE: "",
     MMERGE3: "",
-    CountryCode: null,
-    Country: "",
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -32,7 +30,6 @@ const Registro = ({ actualizarEstado, countries }) => {
     EMAIL: "completar email",
     PHONE: "colocar su numero",
     MMERGE3: "Colocar su empresa",
-    CountryCode: "colocar Country Code",
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -73,12 +70,6 @@ const Registro = ({ actualizarEstado, countries }) => {
     }
     if (!registro.PHONE) {
       errors.PHONE = "Debe ingresar su numero de celular.";
-    }
-    if (!registro.CountryCode) {
-      errors.Phone = "Debe ingresar el código de su pais.";
-    }
-    if (!registro.CountryCode && !registro.Phone) {
-      errors.Phone = "Debe ingresar su pais y su numero de celular.";
     }
     setErrors(errors);
   };
@@ -150,8 +141,6 @@ const Registro = ({ actualizarEstado, countries }) => {
       Name: "",
       Email: "",
       Phone: "",
-      CountryCode: "",
-      Country: "",
     });
     actualizarEstado(false);
     history.push("/video");
@@ -250,73 +239,6 @@ const Registro = ({ actualizarEstado, countries }) => {
               Ingresá tu Numero de telefono
             </label> */}
               <div className="flex max-h-[54px] ">
-                <Select
-                  options={countries.map((country) => ({
-                    value: [country.code, country.name],
-                    label: (
-                      <div className="cursor-pointer flex items-center">
-                        <img
-                          src={country.flag}
-                          alt={country.name}
-                          className="w-6 h-4"
-                        />
-                        <span>{country.name}</span>
-                      </div>
-                    ),
-                  }))}
-                  placeholder={null}
-                  value={
-                    selectedCountry
-                      ? {
-                          value: [registro.CountryCode, registro.Country],
-                          label: (
-                            <div className="flex items-center cursor-pointer">
-                              <img
-                                src={selectedCountry.flag}
-                                alt={selectedCountry.name}
-                                className="w-6 h-4"
-                              />
-                              <span>{`${selectedCountry.name}`}</span>
-                            </div>
-                          ),
-                        }
-                      : registro.CountryCode
-                  }
-                  onChange={(selectedOption) => {
-                    setRegistro({
-                      ...registro,
-                      CountryCode: selectedOption.value[0],
-                      Country: selectedOption.value[1],
-                    });
-                    validate({
-                      ...registro,
-                      CountryCode: selectedOption.value,
-                    });
-                  }}
-                  className="div-f w-2/3 py-2 border-2 border-white rounded-lg focus:outline-none focus:ring-2"
-                  styles={{
-                    control: (provided) => {
-                      const controlStyles = {
-                        ...provided,
-                        "&::placeholder": {
-                          color: "lightgray", 
-                        },
-                      };
-
-                      if (!selectedCountry) {
-                        // Agregar estilo de fondo de imagen si no hay país seleccionado
-                        controlStyles.backgroundImage = `url(${country})`; // Reemplaza con la ruta de tu imagen de marcador de posición
-                        controlStyles.backgroundSize = "25px 25px";
-                        controlStyles.backgroundPosition = "5px center";
-                        controlStyles.backgroundRepeat = "no-repeat";
-                        controlStyles.paddingLeft = "40px"; // Ajusta el espacio para la imagen
-                      }
-
-                      return controlStyles;
-                    },
-                  }}
-                />
-
                 <input
                   type="text"
                   id="PHONE"
