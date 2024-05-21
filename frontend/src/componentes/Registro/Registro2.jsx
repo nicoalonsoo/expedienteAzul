@@ -1,18 +1,12 @@
-import React, { useState, useRef } from "react";
-import axios from "axios";
+import React, { useState, useRef, useEffect } from "react";
 import loading from "../../multimedia/load3.gif";
 import logo from "../../multimedia/logo.png";
-import country from "../../multimedia/country.svg";
 import email from "../../multimedia/email.svg";
 import person from "../../multimedia/person.svg";
 import phone from "../../multimedia/phone.svg";
 import company from "../../multimedia/company.svg"
-import { eventLead } from "../../utils/pixelEvents/PixelEvents";
 import { useHistory } from "react-router-dom";
-import Select from "react-select";
 import "./Registro.css";
-import { motion } from "framer-motion";
-import MailchimpForm from "../Mailchimp";
 
 const Registro = ({ actualizarEstado, countries }) => {
   const formRef = useRef(null);
@@ -32,7 +26,18 @@ const Registro = ({ actualizarEstado, countries }) => {
     MMERGE3: "Colocar su empresa",
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isComponentReady, setIsComponentReady] = useState(false);
 
+  useEffect(() => {
+    // Simulate loading resources
+    const loadResources = async () => {
+      // Simulate a resource loading delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setIsComponentReady(true);
+    };
+
+    loadResources();
+  }, []);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setRegistro((prevRegistro) => ({
@@ -41,14 +46,6 @@ const Registro = ({ actualizarEstado, countries }) => {
     }));
     validate({ ...registro, [name]: value });
   };
-  // const handleCountryChange = (e) => {
-  //   const code = e.target.value;
-  //   setRegistro({
-  //     ...registro,
-  //     countryCode: code,
-  //   });
-  //   validate({ ...registro, countryCode: code });
-  // };
 
   const validate = (registro) => {
     let errors = {};
@@ -78,7 +75,6 @@ const Registro = ({ actualizarEstado, countries }) => {
     e.preventDefault();
     validate(registro);
     if (Object.keys(errors).length === 0) {
-      // eventLead(registro.email, registro.name);
       window.fbq("track", "CompleteRegistration");
       if (formRef.current) {
         formRef.current.submit();
@@ -152,38 +148,21 @@ const Registro = ({ actualizarEstado, countries }) => {
     actualizarEstado(click);
   };
 
-  const selectedCountry = countries.find(
-    (country) => country.code === registro.CountryCode
-  );
-
-  const cardVariants = {
-    offscreen: {
-      y: -150,
-      opacity: 0,
-    },
-    onscreen: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        duration: 0.5,
-      },
-    },
-  };
+  if (!isComponentReady) {
+    return (
+      <div className="flex items-center justify-center w-[700px] max-h-[700px]">
+        <img src={loading} alt="loading" className="max-w-[76px] max-h-[76px]" />
+      </div>
+    );
+  }
   return (
-    <motion.div
+    <div
       className="max-w-[1100px] flex items-center justify-center"
-      variants={cardVariants}
-      initial="offscreen"
-      whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }}
     >
-      
         <div className="max-w-[700px] p-4 bg-white rounded-lg shadow-lg overflow-auto max-h-[700px] relative">
           <button
             className="bg-gray-500 hover:bg-gray-700 transition duration-300 ease-in-out text-white font-semibold text-sm py-1 px-2 rounded absolute top-2 right-0 mt-2 mr-2"
             onClick={() => handleClick(false)}
-            // style={{ marginLeft: "250px" }}
           >
             X
           </button>
@@ -205,12 +184,6 @@ const Registro = ({ actualizarEstado, countries }) => {
           
           >
             <div className="mb-4">
-              {/* <label
-              htmlFor="name"
-              className="block mb-1 sm:mb-2 text-sm text-gray-600"
-            >
-              Ingresá tu Primer Nombre y Apellido
-            </label> */}
               <input
                 type="text"
                 id="FNAME"
@@ -232,12 +205,6 @@ const Registro = ({ actualizarEstado, countries }) => {
               )}
             </div>
             <div className="mb-4">
-              {/* <label
-              htmlFor="phone"
-              className="block mb-1 sm:mb-2 text-sm text-gray-600"
-            >
-              Ingresá tu Numero de telefono
-            </label> */}
               <div className="flex max-h-[54px] ">
                 <input
                   type="text"
@@ -324,21 +291,13 @@ const Registro = ({ actualizarEstado, countries }) => {
               )}
             </div>
           </form>
-          {/* <h3
-          className="font-open-sans text-sm md:text-lg font-bold text-red-500 mb-2 mt-0 mx-4 md:my-0 text-left"
-          style={{ marginBottom: "1rem" }}
-        >
-          *Utilizaremos estos datos para ponernos en contacto y regalarte
-          material de entrenamiento extra en base tus necesidades específicas de
-          trading.
-        </h3> */}
           <div className="text-center"></div>
           <p className="text-xs text-gray-600 text-center mt-8">
             &copy; 2024 XpAzul
           </p>
         </div>
    
-    </motion.div>
+    </div>
   );
 };
 
