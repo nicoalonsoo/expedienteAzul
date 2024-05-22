@@ -150,7 +150,7 @@ const LandingForm = () => {
         <div>
           <h1 className="font-catamaran text-2xl text-gray-800 text-center pb-1">
             Escala tu <span className=" text-[#40b4e5]">SOFIPO</span> o{" "}
-            <span className=" text-[#40b4e5]">SOFOME</span>
+            <span className=" text-[#40b4e5]">SOFOM</span>
           </h1>
         </div>
         

@@ -4,7 +4,7 @@ import React from 'react';
 // import 'react-social-icons/instagram'
 // import 'react-social-icons/linkedin'
 // import 'react-social-icons/facebook'
-import logo from '../../multimedia/log.png'
+import logo from '../../multimedia/logo.png'
 const Footer = () => {
   return (
     <footer className="bg-white text-black py-8 border-t border-gray-300">

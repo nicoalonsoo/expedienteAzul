@@ -33,7 +33,7 @@ const BenefitsContainer = () => {
     {
       imageUrl:
       risks,
-      text: `<span style="color: #40b4e5; font-weight: 600;">Reduce el riesgo  </span>  de Fraudes, multas y problemas de recuperación`,
+      text: `<span style="color: #40b4e5; font-weight: 600;">Reduce el riesgo  </span>  de fraudes, multas y problemas de recuperación`,
     },
     {
       imageUrl:
