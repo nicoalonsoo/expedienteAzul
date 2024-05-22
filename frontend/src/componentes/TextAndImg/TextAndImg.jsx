@@ -27,8 +27,8 @@ const TextAndImage = () => {
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.8 }}
         >
-          xpAzul es más que un gestor documental.
-          <span className="text-[#40b4e5]"> Automatizamos </span>y <span className="text-[#40b4e5]"> digitalizamos  </span>todo tu proceso de onboarding.
+          xpAzul es más que un gestor documental o CRM. 
+          <span className="text-[#40b4e5]"> Automatizamos </span>y <span className="text-[#40b4e5]"> digitalizamos  </span>todo tu proceso de originación, integración, validación y resguardo de tus expedientes.
         </motion.h1>
         <motion.p
           className="text-md text-gray-800 mb-4"
