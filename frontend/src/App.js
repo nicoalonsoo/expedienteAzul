@@ -16,14 +16,14 @@ const tagManagerArgs = {
 }
 function App() {
 
-// useEffect(() => {
-//   TagManager.initialize(tagManagerArgs)
-//   // Enviar evento de pageview en el efecto de montaje
-//   TagManager.dataLayer({
-//     event: 'pageview',
-//     // Puedes agregar datos adicionales aquí (opcional)
-//   })
-// }, [])
+useEffect(() => {
+  TagManager.initialize(tagManagerArgs)
+  // Enviar evento de pageview en el efecto de montaje
+  TagManager.dataLayer({
+    event: 'pageview',
+    // Puedes agregar datos adicionales aquí (opcional)
+  })
+}, [])
 
   return (
     <div className="App ">
