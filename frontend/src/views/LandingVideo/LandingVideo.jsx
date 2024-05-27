@@ -17,7 +17,7 @@ const LandingVideo = () => {
   const handleClick = () => {
     history.push("/viewcalendly");
 
-    window.fbq("track", "Lead");
+    // window.fbq("track", "Lead");
     eventViewContent();
   };
 

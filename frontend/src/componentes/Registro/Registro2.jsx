@@ -75,7 +75,7 @@ const Registro = ({ actualizarEstado, countries }) => {
     e.preventDefault();
     validate(registro);
     if (Object.keys(errors).length === 0) {
-      window.fbq("track", "CompleteRegistration");
+      // window.fbq("track", "CompleteRegistration");
       if (formRef.current) {
         formRef.current.submit();
       }

@@ -88,7 +88,7 @@ const Registro = ({ actualizarEstado, countries }) => {
     validate(registro);
     if (Object.keys(errors).length === 0) {
       // eventLead(registro.email, registro.name);
-      window.fbq("track", "CompleteRegistration");
+      // window.fbq("track", "CompleteRegistration");
       if (formRef.current) {
         formRef.current.submit();
       }
