@@ -12,18 +12,18 @@ axios.defaults.baseURL = 'https://expedienteazul-production.up.railway.app';
 // https://expedienteazul-production.up.railway.app
 // http://localhost:3001
 const tagManagerArgs = {
-  gtmId: 'GTM-MVSJN788'
+  gtmId: 'GTM-PJ54S8JC'
 }
 function App() {
 
-useEffect(() => {
-  TagManager.initialize(tagManagerArgs)
-  // Enviar evento de pageview en el efecto de montaje
-  TagManager.dataLayer({
-    event: 'pageview',
-    // Puedes agregar datos adicionales aquí (opcional)
-  })
-}, [])
+// useEffect(() => {
+//   TagManager.initialize(tagManagerArgs)
+//   // Enviar evento de pageview en el efecto de montaje
+//   TagManager.dataLayer({
+//     event: 'pageview',
+//     // Puedes agregar datos adicionales aquí (opcional)
+//   })
+// }, [])
 
   return (
     <div className="App ">
