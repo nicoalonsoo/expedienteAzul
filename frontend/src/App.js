@@ -7,23 +7,13 @@ import LandingForm from './views/LandingForm/LandingForm';
 import UserTable from './views/UserTable/UserTable'
 import Unsubscribe from './views/Unsubscribe/Unsubscribe'
 import ViewCalendly from "./views/viewCalendly/viewCalendly";
-import TagManager from 'react-gtm-module'
 axios.defaults.baseURL = 'https://expedienteazul-production.up.railway.app';
 // https://expedienteazul-production.up.railway.app
 // http://localhost:3001
-const tagManagerArgs = {
-  gtmId: 'GTM-PJ54S8JC'
-}
+
 function App() {
 
-// useEffect(() => {
-//   TagManager.initialize(tagManagerArgs)
-//   // Enviar evento de pageview en el efecto de montaje
-//   TagManager.dataLayer({
-//     event: 'pageview',
-//     // Puedes agregar datos adicionales aquí (opcional)
-//   })
-// }, [])
+
 
   return (
     <div className="App ">
