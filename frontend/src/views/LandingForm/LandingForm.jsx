@@ -15,8 +15,10 @@ import TextAndImage from "../../componentes/TextAndImg/TextAndImg";
 import { motion } from "framer-motion";
 import YoutubeFrame from "../../multimedia/youtubeFrame.jpeg";
 import RegistroDisplayed from "../../componentes/Registro/Registro3";
-
+import { useHistory } from "react-router-dom";
 const LandingForm = () => {
+
+  const history = useHistory();
   const countries = useSelector((state) => state.countries);
   const dispatch = useDispatch();
   const [showForm, setShowform] = useState(false);
@@ -39,6 +41,9 @@ const LandingForm = () => {
 
   const handleClick = (click) => {
     setShowform(click);
+  };
+  const handleButtonClick = (click) => {
+    history.push("/viewcalendly");
   };
 
   const actualizarEstadoPadre = (estado) => {
@@ -161,7 +166,7 @@ const LandingForm = () => {
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.8 }}
-            onClick={() => handleClick(true)}
+            onClick={() => handleButtonClick(true)}
             style={{
               marginBottom: "3rem",
               display: "flex",

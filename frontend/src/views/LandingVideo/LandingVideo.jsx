@@ -18,7 +18,7 @@ const LandingVideo = () => {
     history.push("/viewcalendly");
 
     // window.fbq("track", "Lead");
-    eventViewContent();
+    // eventViewContent();
   };
 
   const cardVariants = {
