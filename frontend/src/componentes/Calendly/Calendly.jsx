@@ -12,7 +12,7 @@ const Calendly = () => {
     // Listener para el evento de Calendly
     const handleEventScheduled = (e) => {
       if (e.data.event === "calendly.event_scheduled") {
-        window.location.href = "http://localhost:3000/gracias";
+        window.location.href = "https://offer.xpazul.com/gracias?registro=true";
       }
     };
 
