@@ -18,10 +18,10 @@ function App() {
   return (
     <div className="App ">
       <Route exact path="/video" component={LandingVideo} />
-      <Route exact path="/" component={LandingForm} />
+      <Route exact path="/gracias" component={LandingForm} />
       <Route exact path="/usertable" component={UserTable} />
       <Route exact path="/unsubscribe" component={Unsubscribe} />
-      <Route exact path="/viewcalendly" component={ViewCalendly} />
+      <Route exact path="/registro" component={ViewCalendly} />
     </div>
   );
 }

@@ -16,8 +16,8 @@ import { motion } from "framer-motion";
 import YoutubeFrame from "../../multimedia/youtubeFrame.jpeg";
 import RegistroDisplayed from "../../componentes/Registro/Registro3";
 import { useHistory } from "react-router-dom";
+import YoutubeVideo from "../../componentes/Video/Video";
 const LandingForm = () => {
-
   const history = useHistory();
   const countries = useSelector((state) => state.countries);
   const dispatch = useDispatch();
@@ -118,6 +118,9 @@ const LandingForm = () => {
     >
       <Header />
       <div className="text-center max-w-[1323px] mx-auto">
+        <div>
+          <h1></h1>
+        </div>
         <div className="">
           <motion.h1
             className="font-catamaran italic text-balance text-2xl md:text-4xl font-extrabold text-gray-800 leading-custom mb-0 mt-4 mx-1 md:mx-0"
@@ -126,31 +129,30 @@ const LandingForm = () => {
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.8 }}
           >
-            <span className="text-xl md:text-3xl font-normal">
-            Descubre la{" "}
-            <span className=" ">Tecnología Innovadora</span> que
-            transforma el sector financiero en México:</span>&nbsp; {""}
-            <br /> <br />
-           <span className="not-italic"> <span className=" text-[#40b4e5]">Aumenta </span> la colocación de
-            financiamiento{" "}
-            <span className=" text-[#40b4e5]">reduciendo el riesgo</span> de
-            fraudes, multas y problemas a la hora de recuperar.</span>
+            <span className="text-lg md:text-3xl font-normal mb-6">
+              Muchas gracias por registrarte! Te dejamos un breve video sobre la
+              explicación del software.
+            </span>
+          </motion.h1>
+          <motion.h1
+            className="font-catamaran italic text-balance text-2xl md:text-4xl font-extrabold text-gray-800 leading-custom mb-0 mt-4 mx-1 md:mx-0"
+            variants={cardVariants}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+          >
+            &nbsp; {""}
+            <span className="not-italic text-balance">
+              {" "}
+              <span className=" text-[#40b4e5]">Aumenta </span> la colocación de
+              financiamiento{" "}
+              <span className=" text-[#40b4e5]">reduciendo el riesgo</span> de
+              fraudes, multas y problemas a la hora de recuperar.
+            </span>
           </motion.h1>
         </div>
-
-        {/* <h3 className="text-lg md:text-2xl mb-2 mx-6 my-2 md:my-0 md:mx-0">
-          Copiando y pegando nuestra estrategia que nos viene generando en
-          promedio un 29% mensual en los últimos dos años.
-        </h3> */}
-        <div className="mx-auto max-w-[700px] p-4 sm:p-4 py-4 mb-0 mt-0 sm:mb-2 sm:mt-2">
-          <img
-            src={YoutubeFrame}
-            alt="gif"
-            className="mr-2 sm:mr-0 transition-transform duration-300 ease-in-out transform scale-100 hover:scale-110 rounded-xl border-2 border-blue-500"
-            onMouseEnter={handleImageHover}
-            onMouseLeave={handleImageHover}
-            onClick={() => handleClick(true)}
-          />
+        <div className="w-full  flex justify-center px-2">
+          <YoutubeVideo />
         </div>
         <div>
           <h1 className="font-catamaran text-2xl text-gray-800 text-center pb-1">
@@ -158,15 +160,17 @@ const LandingForm = () => {
             <span className=" text-[#40b4e5]">SOFOM</span>
           </h1>
         </div>
-        
+
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <motion.button
+          <motion.a
             className="ov-btn-slide-left max-w-[700px] bg-gradient-to-r from-[#40b4e5] to-[#09a3e4] text-white text-2xl py-4 px-6 rounded-xl mb-2 mx-4 my-0 md:my-2"
             variants={cardVariants}
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.8 }}
-            onClick={() => handleButtonClick(true)}
+            href="https://wa.me/+523315712712"
+            target="_blank"
+            rel="noreferrer"
             style={{
               marginBottom: "3rem",
               display: "flex",
@@ -183,8 +187,8 @@ const LandingForm = () => {
                 fill: "white",
               }}
             />
-            QUIERO UNA DEMOSTRACIÓN
-          </motion.button>
+            QUIERO HABLAR CON UN ASESOR
+          </motion.a>
         </div>
         <div className="flex justify-center">
           <BenefitsContainer />
@@ -192,23 +196,25 @@ const LandingForm = () => {
         <div className="flex justify-center text-center">
           <TextAndImage />
         </div>
-        <div className="flex justify-center text-center py-4">
+        {/* <div className="flex justify-center text-center py-4">
           <RegistroDisplayed  actualizarEstado={actualizarEstadoPadre}
                 countries={filterCountries}  />
-        </div>
+        </div> */}
       </div>
       <div className="mx-auto flex items-center justify-center">
         <ClientContainer />
       </div>
       <div className="mt-4">
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <motion.button
+          <motion.a
             className="ov-btn-slide-left max-w-[700px] bg-gradient-to-r from-[#40b4e5] to-[#09a3e4] text-white text-2xl py-4 px-6 rounded-xl mb-2 mx-4 my-0 md:my-2"
             variants={cardVariants}
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.8 }}
-            onClick={() => handleClick(true)}
+            href="https://wa.me/+523315712712"
+            target="_blank"
+            rel="noreferrer"
             style={{
               marginBottom: "3rem",
               display: "flex",
@@ -225,8 +231,8 @@ const LandingForm = () => {
                 fill: "white",
               }}
             />
-            QUIERO UNA DEMOSTRACIÓN
-          </motion.button>
+            QUIERO HABLAR CON UN ASESOR
+          </motion.a>
         </div>
       </div>
       {showForm && (

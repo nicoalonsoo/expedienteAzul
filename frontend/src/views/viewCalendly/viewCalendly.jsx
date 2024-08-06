@@ -16,10 +16,10 @@ const ViewCalendly = () => {
     >
       <Header />
       <div className="text-center py-4 max-w-[1223px] mx-auto">
-        <h1 className="font-open-sans text-2xl md:text-5xl font-extrabold mb-2 mx-4 md:mx-0">
-          Estas a un paso de tu Sesión...
+        <h1 className="font-open-sans text-2xl md:text-5xl text-gray-900 mb-2 mx-4 md:mx-0">
+          Estas a un paso de tu Demo...
         </h1>
-        <h3 className="text-lg md:text-2xl mb-2 mx-6 my-2 md:my-0 md:mx-0">
+        <h3 className="text-lg md:text-2xl mb-2 mx-6 my-2 md:my-0 md:mx-0 text-balance">
         Aceleramos significativamente el proceso de seguimiento, validación de requisitos y dictamen final, reduciendo las fricciones con el cliente, el desorden y la dificultad en el seguimiento.
         </h3>
         <div className="h-[866px] lg:h-auto">
