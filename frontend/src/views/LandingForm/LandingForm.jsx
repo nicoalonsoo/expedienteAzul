@@ -13,8 +13,7 @@ import ClientContainer from "../../componentes/ClientContainer/ClientContainer";
 import BenefitsContainer from "../../componentes/BenefitsContainer/BenefitsContainer";
 import TextAndImage from "../../componentes/TextAndImg/TextAndImg";
 import { motion } from "framer-motion";
-import YoutubeFrame from "../../multimedia/youtubeFrame.jpeg";
-import RegistroDisplayed from "../../componentes/Registro/Registro3";
+import WhatsAppButton from "../../componentes/Whatsapp/WhatsappButton";
 import { useHistory } from "react-router-dom";
 import YoutubeVideo from "../../componentes/Video/Video";
 const LandingForm = () => {
@@ -251,6 +250,7 @@ const LandingForm = () => {
           </div>
         </>
       )}
+      <WhatsAppButton />
       <Footer />
     </div>
   );
