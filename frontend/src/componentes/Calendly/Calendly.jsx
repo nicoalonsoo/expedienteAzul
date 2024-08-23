@@ -27,7 +27,7 @@ const Calendly = () => {
   return (
     <div
       className="calendly-inline-widget h-[1266px] lg:h-[766px]"
-      data-url="https://calendly.com/acasillas-xpazul/30min"
+      data-url="https://calendly.com/acasillas-xpazul/exploremos-xpazul-juntos"
       style={{ minWidth: "320px" }}
     ></div>
   );
