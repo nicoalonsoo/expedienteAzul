@@ -12,6 +12,13 @@ const Calendly = () => {
     // Listener para el evento de Calendly
     const handleEventScheduled = (e) => {
       if (e.data.event === "calendly.event_scheduled") {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "MetaLeadEvent",
+          eventCategory: "Lead",
+          eventAction: "Submit",
+          eventLabel: "MetaLeadEvent",
+        });
         window.location.href = "https://offer.xpazul.com/gracias?registro=true";
       }
     };
