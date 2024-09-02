@@ -19,7 +19,7 @@ const Calendly = () => {
           eventAction: "Submit",
           eventLabel: "MetaLeadEvent",
         });
-        window.location.href = "https://offer.xpazul.com/gracias?registro=true";
+        // window.location.href = "https://offer.xpazul.com/gracias?registro=true";
       }
     };
 
